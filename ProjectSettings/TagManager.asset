@@ -5,11 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Slash
+  - Enemigo
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - Enemigo
@@ -47,4 +48,10 @@ TagManager:
     locked: 0
   - name: Enemigo
     uniqueID: 1023788967
+    locked: 0
+  - name: Arma
+    uniqueID: 2181889049
+    locked: 0
+  - name: UI
+    uniqueID: 745054151
     locked: 0

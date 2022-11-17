@@ -11,7 +11,7 @@ public class EnemigosInput : MonoBehaviour
 
     void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, target.position, velocidad * manager.tiempoDelta);
+        if (manager.start) transform.position = Vector3.MoveTowards(transform.position, target.position, velocidad * manager.tiempoDelta);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

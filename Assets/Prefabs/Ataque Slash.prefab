@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba7599ad7dc08a64fb4b948340bf279a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefb: {fileID: 332128378708566935, guid: 294f04566f2ca57459fb25a01f61508c, type: 3}
-  initPos: {fileID: 7488879336461231669}
-  velocidad: 10
+  target: {fileID: 0}
+  prefb: {fileID: 7669862216885065282, guid: 294f04566f2ca57459fb25a01f61508c, type: 3}
   cooldown: 1
+  radio: 0

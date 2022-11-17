@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -25,8 +26,8 @@ public class GameManager : MonoBehaviour
 
     [Header("Gameplay")]
     public SpawnEnemigos spawn;
+    public Image bTiempo;
     public bool start = false;
-    public float tiempoTotal;
     public float tiempo;
 
     void Start()
@@ -44,16 +45,17 @@ public class GameManager : MonoBehaviour
             tD = true;
         }
 
+        // Cuenta atras
         if (start)
         {
-            tiempo += tiempoDelta;
+            tiempo -= tiempoDelta;
+            bTiempo.fillAmount = tiempo / 20;
         }
 
-        if (tiempo >= tiempoTotal)
+        if (tiempo <= 0 && start == true)
         {
             start = false;
             tD = false;
-            Limpiar();
         }
     }
 
