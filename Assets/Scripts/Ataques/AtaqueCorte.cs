@@ -6,7 +6,7 @@ using UnityEngine;
 public class AtaqueCorte : MonoBehaviour
 {
     GameManager manager;
-    Coroutine slashCoro;
+    Coroutine slashCoro, targetCoro;
 
     public Transform target;
     public GameObject prefb;
@@ -22,6 +22,9 @@ public class AtaqueCorte : MonoBehaviour
     {
         if (manager.start)
         {
+            // Seleccionar objetivo
+            Start_SelecTarget();
+            // Instanciar ataque
             Start_Slash();
         }
     }
@@ -37,16 +40,17 @@ public class AtaqueCorte : MonoBehaviour
     {
         yield return new WaitForSeconds(cooldown);
 
-        // Seleccionar objetivo
-        SeleccionarTarget();
-
-        // Instanciar Ataque
         if (target) _ = Instantiate(prefb, transform.position, Quaternion.identity, transform);
 
         slashCoro = null;
     }
 
-    void SeleccionarTarget()
+    void Start_SelecTarget()
+    {
+        targetCoro ??= StartCoroutine(SeleccionarTarget());
+    }
+
+    IEnumerator SeleccionarTarget()
     {
         Collider2D[] nearTargets = Physics2D.OverlapCircleAll(transform.position, radio, LayerMask.GetMask("Enemigo"));
 
@@ -57,5 +61,8 @@ public class AtaqueCorte : MonoBehaviour
                 target = nearTargets[i].transform;
             }
         }
+
+        yield return new WaitForEndOfFrame();
+        targetCoro = null;
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class SpawnEnemigos : MonoBehaviour
 {
@@ -17,9 +18,9 @@ public class SpawnEnemigos : MonoBehaviour
 
     bool spawn = false;
     [Header("Spawn Area")]
-    public int x;
-    public int y;
+    public Tilemap map;
     public int distancia;
+    public float tiempoSpawn = .2f;
 
     private void Start()
     {
@@ -54,9 +55,8 @@ public class SpawnEnemigos : MonoBehaviour
         {
             GameObject clon = Instantiate(enemigos[0], SpawnPos(), Quaternion.identity, transform);
             clon.GetComponent<EnemigosInput>().target = target;
-            Debug.Log(clon.name);
 
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForSeconds(tiempoSpawn);
         }
         spawn = true;
         spawnCoro = null;
@@ -69,10 +69,9 @@ public class SpawnEnemigos : MonoBehaviour
 
         do
         {
-            _x = Random.Range(-x, x + 1);
-            _y = Random.Range(-y, y + 1);
+            _x = Random.Range(-(map.size.x/2), map.size.x / 2);
+            _y = Random.Range(-(map.size.y / 2), map.size.y / 2);
             pos = new Vector2(_x, _y);
-            pos += target.position;
         }
         while (Vector2.Distance(target.position, pos) < distancia);
 

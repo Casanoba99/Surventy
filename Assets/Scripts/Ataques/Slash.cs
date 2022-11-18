@@ -23,6 +23,7 @@ public class Slash : MonoBehaviour
 
     void Rotacion()
     {
+        Debug.Log(GetComponentInParent<AtaqueCorte>().name);
         Vector3 target = GetComponentInParent<AtaqueCorte>().target.position;
         Vector3 dir = target - transform.position;
 

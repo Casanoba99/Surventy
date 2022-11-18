@@ -54,14 +54,13 @@ public class PlayerInput : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.transform.CompareTag("Enemigo"))
+        if (collision.CompareTag("Enemigo"))
         {
             Start_PierdeVida();
         }
     }
-
     void Start_PierdeVida()
     {
         vidaCoro ??= StartCoroutine(PerderVida());
@@ -74,7 +73,7 @@ public class PlayerInput : MonoBehaviour
 
         if (vida <= 0) manager.start = false;
 
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.25f);
         vidaCoro = null;
     }
 }
