@@ -45,6 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  prefb: {fileID: 7669862216885065282, guid: 294f04566f2ca57459fb25a01f61508c, type: 3}
+  prefb: {fileID: 7669862216885065282, guid: 0ab5b878b30311b4b892f2552352abb8, type: 3}
   cooldown: 2
   radio: 10

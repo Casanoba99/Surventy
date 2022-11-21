@@ -78,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1023788967
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 827310751, guid: 46ec08e901c8e6f4db0aaf9dc9996aeb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -177,9 +177,8 @@ MonoBehaviour:
   m_SelfShadows: 0
   m_ApplyToSortingLayers: 00000000d9aaf109a7c7053d
   m_ShapePath:
-  - {x: -0.28789747, y: 0.18614519, z: 0}
-  - {x: -0.29695177, y: 0.25296575, z: 0}
-  - {x: -0.36210644, y: 0.2996235, z: 0}
+  - {x: -0.30006853, y: 0.24673226, z: 0}
+  - {x: -0.30059558, y: 0.3024424, z: 0}
   - {x: -0.120615005, y: 0.30269322, z: 0}
   - {x: -0.05649209, y: 0.36886668, z: 0}
   - {x: -0.048668265, y: 0.4267903, z: 0}
@@ -196,9 +195,9 @@ MonoBehaviour:
   - {x: -0.051910877, y: 0.008168757, z: 0}
   - {x: -0.10807204, y: 0.021868676, z: 0}
   - {x: -0.11116612, y: 0.13970688, z: 0}
-  m_ShapePathHash: -1669695995
+  m_ShapePathHash: 1936485458
   m_Mesh: {fileID: 0}
-  m_InstanceId: 44388
+  m_InstanceId: -146804
 --- !u!114 &185160956084587854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,7 +228,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1929539353324726470
 Transform:
   m_ObjectHideFlags: 0

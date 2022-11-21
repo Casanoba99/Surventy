@@ -33,28 +33,28 @@ public class SpawnEnemigos : MonoBehaviour
 
         if (manager.start && !spawn)
         {
-            Start_Spawn();
+            Start_SpawnPoint();
         }
 
         if (manager.start && spawn && hijos < min)
         {
-            Start_Spawn();
+            Start_SpawnPoint();
         }
     }
 
     #region Spawn
 
-    void Start_Spawn()
+    void Start_SpawnPoint()
     {
-        spawnCoro ??= StartCoroutine(Spawn());
+        spawnCoro ??= StartCoroutine(SpawnPoint());
     }
 
-    IEnumerator Spawn()
+    IEnumerator SpawnPoint()
     {
         for (int i = 0; i < cantidad; i++)
         {
-            GameObject clon = Instantiate(enemigos[0], SpawnPos(), Quaternion.identity, transform);
-            clon.GetComponent<EnemigosInput>().target = target;
+            GameObject clon = Instantiate(enemigos[0], SpawnPos(), Quaternion.identity);
+            clon.GetComponent<SpawnPoint>().padre = this;
 
             yield return new WaitForSeconds(tiempoSpawn);
         }
