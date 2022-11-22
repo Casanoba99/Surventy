@@ -1,18 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SelectArma : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public CartasSO carta;
+    public GameObject prfb;
+    [Space(5)]
+    public TextMeshProUGUI name;
+    public Image armaImg;
+    public TextMeshProUGUI descripcion;
+
+    
     void Start()
     {
-        
+        AsignarValores();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void AsignarValores()
     {
-        
+        name.text = carta.name;
+        armaImg.sprite = carta.imagen;
+        descripcion.text = carta.descripcion;
     }
 }
