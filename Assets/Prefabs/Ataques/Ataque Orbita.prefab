@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2713200852468252065}
   - component: {fileID: 2713200852468252066}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Ataque Orbita
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 8871749615429758934}
   - component: {fileID: 8871749615429758935}
   - component: {fileID: 8871749615429758952}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Bot
   m_TagString: Slash
   m_Icon: {fileID: 0}

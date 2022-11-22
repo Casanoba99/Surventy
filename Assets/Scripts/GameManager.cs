@@ -25,7 +25,6 @@ public class GameManager : MonoBehaviour
     public float tiempoDelta;
 
     [Header("Gameplay")]
-    public SpawnEnemigos spawn;
     public Image bTiempo;
     public bool start = false;
     public float tiempo;
@@ -57,23 +56,5 @@ public class GameManager : MonoBehaviour
             start = false;
             tD = false;
         }
-    }
-
-    void Limpiar()
-    {
-        limpiarCoro ??= StartCoroutine(LimpiarEscena());
-    }
-
-    IEnumerator LimpiarEscena()
-    {
-        int n = spawn.hijos;
-
-        for (int i = 0; i < n; i++)
-        {
-            Destroy(spawn.transform.GetChild(0).gameObject);
-            yield return new WaitForEndOfFrame();
-        }
-
-        limpiarCoro = null;
     }
 }

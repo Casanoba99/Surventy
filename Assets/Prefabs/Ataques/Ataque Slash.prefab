@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7488879337915537102}
   - component: {fileID: 7488879337915537105}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Ataque Slash
   m_TagString: Untagged
   m_Icon: {fileID: 0}

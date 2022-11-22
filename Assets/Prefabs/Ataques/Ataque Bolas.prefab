@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 943232816745978288}
   - component: {fileID: 4689788153188251404}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Ataque Bolas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

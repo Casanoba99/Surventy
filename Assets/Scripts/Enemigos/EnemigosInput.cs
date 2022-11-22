@@ -11,8 +11,11 @@ public class EnemigosInput : MonoBehaviour
 
     void Update()
     {
-        if (manager.start && Vector3.Distance(transform.position, target.position) > .2f) 
+        if (manager.start) 
             transform.position = Vector3.MoveTowards(transform.position, target.position, velocidad * manager.tiempoDelta);
+
+        if (Vector3.Distance(target.position, transform.position) < .2f)
+            target.GetComponent<PlayerInput>().Start_PierdeVida();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

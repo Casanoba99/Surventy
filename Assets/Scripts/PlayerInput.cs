@@ -54,14 +54,7 @@ public class PlayerInput : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Enemigo"))
-        {
-            Start_PierdeVida();
-        }
-    }
-    void Start_PierdeVida()
+    public void Start_PierdeVida()
     {
         vidaCoro ??= StartCoroutine(PerderVida());
     }
