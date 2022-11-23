@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 952a561982c72414d853351f27c6c790, type: 3}
-  m_Name: Bot
+  m_Name: Bob
   m_EditorClassIdentifier: 
-  name: Bot
-  imagen: {fileID: 817055865, guid: cd0593b7469cca9468dd37f597745f00, type: 3}
-  descripcion: Protect you in an area.
+  nombre: Bob the Bot
+  imagen: {fileID: 1016329716, guid: cd0593b7469cca9468dd37f597745f00, type: 3}
+  descripcion: Protects you in area.

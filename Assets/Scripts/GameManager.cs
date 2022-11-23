@@ -20,7 +20,8 @@ public class GameManager : MonoBehaviour
 
     Coroutine limpiarCoro;
 
-    bool tD = false;
+    [HideInInspector]
+    public bool tD = false;
     [HideInInspector]
     public float tiempoDelta;
 
@@ -29,19 +30,14 @@ public class GameManager : MonoBehaviour
     public bool start = false;
     public float tiempo;
 
-    void Start()
-    {
-
-    }
-
     void Update()
     {
         if (tD) tiempoDelta = Time.deltaTime;
 
-        if (Input.GetKeyDown(KeyCode.Space) && !start)
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            start = true;
-            tD = true;
+            start = !start;
+            tD = !tD;
         }
 
         // Cuenta atras

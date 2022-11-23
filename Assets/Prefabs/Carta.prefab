@@ -144,8 +144,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 908c3bcd1335ba649949a9324aa18aa4, type: 2}
+  m_sharedMaterial: {fileID: 894161792454564940, guid: 908c3bcd1335ba649949a9324aa18aa4, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -164,13 +164,13 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
+  m_TextStyleHashCode: 97690656
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 91688629835792723}
   - component: {fileID: 91688629835792726}
   m_Layer: 5
-  m_Name: Carta Shotgun
+  m_Name: Carta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -335,7 +335,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 91688629835792724}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 91688629835792726}
+        m_TargetAssemblyTypeName: Cartas, Assembly-CSharp
+        m_MethodName: IntanciarArma
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &91688629835792726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -349,7 +361,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carta: {fileID: 0}
-  name: {fileID: 91688629802496091}
+  prfb: {fileID: 0}
+  nombre: {fileID: 91688629802496091}
   armaImg: {fileID: 91688629092538230}
   descripcion: {fileID: 91688630661879654}
 --- !u!1 &91688630661879652
@@ -420,8 +433,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e6c5d7d7bf93df04c8790ebd7d3691e0, type: 2}
+  m_sharedMaterial: {fileID: -9175848038669304873, guid: e6c5d7d7bf93df04c8790ebd7d3691e0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

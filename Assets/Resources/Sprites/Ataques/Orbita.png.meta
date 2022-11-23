@@ -140,8 +140,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 5, y: -1}
-        - {x: 6, y: -1}
+      - - {x: 6, y: -1}
         - {x: 6, y: 0}
         - {x: 5, y: 0}
         - {x: 5, y: 1}
@@ -172,7 +171,6 @@ TextureImporter:
         - {x: -2, y: -1}
         - {x: -2, y: -2}
         - {x: -1, y: -2}
-        - {x: -1, y: -3}
         - {x: -1, y: -4}
         - {x: 0, y: -4}
         - {x: 0, y: -5}
@@ -187,6 +185,7 @@ TextureImporter:
         - {x: 3, y: -1}
         - {x: 3, y: 0}
         - {x: 5, y: 0}
+        - {x: 5, y: -1}
       - - {x: 0, y: -7}
         - {x: 0, y: -6}
         - {x: 1, y: -6}
@@ -194,8 +193,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b6edf929126f7c49a192bf6061dfa9d
-      internalID: 817055865
+      spriteID: 4bc5d1547e87ede41bd77eaba2ea836f
+      internalID: 1016329716
       vertices: []
       indices: 
       edges: []
@@ -212,8 +211,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 5, y: -1}
-        - {x: 6, y: -1}
+      - - {x: 6, y: -1}
         - {x: 6, y: 0}
         - {x: 5, y: 0}
         - {x: 5, y: 1}
@@ -255,6 +253,7 @@ TextureImporter:
         - {x: 3, y: -1}
         - {x: 3, y: 0}
         - {x: 5, y: 0}
+        - {x: 5, y: -1}
       - - {x: -1, y: -5}
         - {x: -1, y: -4}
         - {x: 0, y: -4}
@@ -266,8 +265,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 32896cdc108871442b150f819ea9444d
-      internalID: -202656027
+      spriteID: da45b3fbf5297624a983c2e2cf293971
+      internalID: -242331064
       vertices: []
       indices: 
       edges: []
@@ -284,8 +283,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 5, y: -1}
-        - {x: 6, y: -1}
+      - - {x: 6, y: -1}
         - {x: 6, y: 0}
         - {x: 5, y: 0}
         - {x: 5, y: 1}
@@ -316,7 +314,6 @@ TextureImporter:
         - {x: -2, y: -1}
         - {x: -2, y: -2}
         - {x: -1, y: -2}
-        - {x: -1, y: -3}
         - {x: -1, y: -4}
         - {x: 0, y: -4}
         - {x: 0, y: -3}
@@ -327,19 +324,20 @@ TextureImporter:
         - {x: 3, y: -1}
         - {x: 3, y: 0}
         - {x: 5, y: 0}
-      - - {x: 0, y: -6}
-        - {x: 0, y: -5}
-        - {x: 1, y: -5}
-        - {x: 1, y: -6}
+        - {x: 5, y: -1}
       - - {x: -1, y: -7}
         - {x: -1, y: -6}
         - {x: 0, y: -6}
         - {x: 0, y: -7}
+      - - {x: 0, y: -6}
+        - {x: 0, y: -5}
+        - {x: 1, y: -5}
+        - {x: 1, y: -6}
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 21d6b2dc8a220b941a0711dc6c35678c
-      internalID: 1669802745
+      spriteID: c726be662469cfb41bd7071053fbbbda
+      internalID: -794756626
       vertices: []
       indices: 
       edges: []
@@ -356,8 +354,7 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: 5, y: -1}
-        - {x: 6, y: -1}
+      - - {x: 6, y: -1}
         - {x: 6, y: 0}
         - {x: 5, y: 0}
         - {x: 5, y: 1}
@@ -392,13 +389,13 @@ TextureImporter:
         - {x: 0, y: -3}
         - {x: 0, y: -4}
         - {x: 1, y: -4}
-        - {x: 1, y: -3}
         - {x: 1, y: -2}
         - {x: 2, y: -2}
         - {x: 2, y: -1}
         - {x: 3, y: -1}
         - {x: 3, y: 0}
         - {x: 5, y: 0}
+        - {x: 5, y: -1}
       - - {x: -1, y: -6}
         - {x: -1, y: -5}
         - {x: 0, y: -5}
@@ -406,8 +403,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fca337103728c7d48a63ecf3cbbee3c3
-      internalID: -1552385404
+      spriteID: 51a0beeb9ea609141829640a28a4eea3
+      internalID: -1075914809
       vertices: []
       indices: 
       edges: []
@@ -425,10 +422,10 @@ TextureImporter:
     - texture: {fileID: 2800000, guid: afd432966dbdc454ab6cb4fb5da6ff20, type: 3}
       name: _Emission
     nameFileIdTable:
-      Orbita_1: -202656027
-      Orbita_2: 1669802745
-      Orbita_3: -1552385404
-      Orbita_0: 817055865
+      Orbita_1: -242331064
+      Orbita_2: -794756626
+      Orbita_3: -1075914809
+      Orbita_0: 1016329716
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

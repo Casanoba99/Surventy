@@ -1,28 +1,49 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class SelectArma : MonoBehaviour
+[Serializable]
+public struct CartaPrfb
 {
     public CartasSO carta;
     public GameObject prfb;
-    [Space(5)]
-    public TextMeshProUGUI name;
-    public Image armaImg;
-    public TextMeshProUGUI descripcion;
+}
 
-    
+public class SelectArma : MonoBehaviour
+{
+    List<int> ints= new List<int>();
+    int nCarta;
+
+    public CartaPrfb[] cartaPrfb;
+    public Cartas[] cartas;
+
     void Start()
     {
-        AsignarValores();
+        ints = new List<int>(new int[cartaPrfb.Length]);
+        for (int i = 0; i < ints.Count; i++)
+        {
+            ints[i] = -1;
+        }
+
+        ImprimirCartas();
     }
 
-    public void AsignarValores()
+    void ImprimirCartas()
     {
-        name.text = carta.name;
-        armaImg.sprite = carta.imagen;
-        descripcion.text = carta.descripcion;
+        for (int i = 0; i < cartas.Length; i++)
+        {
+            nCarta = UnityEngine.Random.Range(0, cartaPrfb.Length);
+            while (ints.Contains(nCarta))
+            {
+                nCarta = UnityEngine.Random.Range(0, cartaPrfb.Length);
+            }
+            ints[i] = nCarta;
+
+            cartas[i].carta = cartaPrfb[nCarta].carta;
+            cartas[i].prfb = cartaPrfb[nCarta].prfb;
+
+            cartas[i].AsignarValores();
+        }
     }
 }

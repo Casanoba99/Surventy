@@ -5,7 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Carta Arma")]
 public class CartasSO : ScriptableObject
 {
-    public string name;
+    public string nombre;
     public Sprite imagen;
+    [TextArea]
     public string descripcion;
 }

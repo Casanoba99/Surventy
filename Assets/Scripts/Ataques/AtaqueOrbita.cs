@@ -16,8 +16,11 @@ public class AtaqueOrbita : MonoBehaviour
 
     void Update()
     {
-        transform.Rotate(Vector3.forward, torque * manager.tiempoDelta);
-
-        bot.Rotate(Vector3.forward, -torque * manager.tiempoDelta);
+        if (manager.start)
+        {
+            transform.Rotate(Vector3.forward, torque * manager.tiempoDelta);
+            bot.Rotate(Vector3.forward, -torque * manager.tiempoDelta);
+        }
     }
 }
+

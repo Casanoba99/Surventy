@@ -40,7 +40,7 @@ public class AtaqueCorte : MonoBehaviour
     {
         yield return new WaitForSeconds(cooldown);
 
-        if (target) _ = Instantiate(prefb, transform.position, Quaternion.identity, transform);
+        if (target && manager.start) _ = Instantiate(prefb, transform.position, Quaternion.identity, transform);
 
         slashCoro = null;
     }

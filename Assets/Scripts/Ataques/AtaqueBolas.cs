@@ -43,7 +43,7 @@ public class AtaqueBolas : MonoBehaviour
     {
         yield return new WaitForSeconds(cooldown);
 
-        if (target)
+        if (target && manager.start)
         {
             Rotacion();
             _ = Instantiate(prefab, transform.position, transform.rotation, transform);
