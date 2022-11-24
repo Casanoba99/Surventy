@@ -29,15 +29,28 @@ public class GameManager : MonoBehaviour
     public Image bTiempo;
     public bool start = false;
     public float tiempo;
+    [Space(5)]
+    public GameObject sArma;
+    public GameObject mPausa;
+
+    private void Start()
+    {
+        if (!sArma.activeSelf)
+        {
+            sArma.SetActive(true);
+            mPausa.SetActive(false);
+        }
+    }
 
     void Update()
     {
         if (tD) tiempoDelta = Time.deltaTime;
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             start = !start;
             tD = !tD;
+            mPausa.SetActive(true);
         }
 
         // Cuenta atras
