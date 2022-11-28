@@ -13,6 +13,8 @@ public class PlayerInput : MonoBehaviour
     float X;
     float Y;
 
+    public VictoriaDerrota mVD;
+
     [Header("Movimiento")]
     public float vel;
     public Vector2 vectMov;
@@ -64,7 +66,12 @@ public class PlayerInput : MonoBehaviour
         vida--;
         bVida.fillAmount -= .1f / 2;
 
-        if (vida <= 0) manager.start = false;
+        if (vida <= 0)
+        {
+            manager.start = false;
+            mVD.gameObject.SetActive(true);
+            mVD.Resolucion(false);
+        }
 
         yield return new WaitForSeconds(.25f);
         vidaCoro = null;

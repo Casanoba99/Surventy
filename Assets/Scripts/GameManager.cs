@@ -9,12 +9,7 @@ public class GameManager : MonoBehaviour
     public static GameManager gm;
     private void Awake()
     {
-        if (gm == null)
-        {
-            gm = this;
-            DontDestroyOnLoad(gm);
-        }
-        else Destroy(gameObject);
+        if (gm == null) gm = this;
     }
     #endregion
 
@@ -32,6 +27,9 @@ public class GameManager : MonoBehaviour
     [Space(5)]
     public GameObject sArma;
     public GameObject mPausa;
+    public VictoriaDerrota mVD;
+    [Space(5)]
+    public Image tran;
 
     private void Start()
     {
@@ -39,7 +37,10 @@ public class GameManager : MonoBehaviour
         {
             sArma.SetActive(true);
             mPausa.SetActive(false);
+            mVD.gameObject.SetActive(false);
         }
+
+        tran.CrossFadeAlpha(0, 1, true);
     }
 
     void Update()
@@ -64,6 +65,8 @@ public class GameManager : MonoBehaviour
         {
             start = false;
             tD = false;
+            mVD.gameObject.SetActive(true);
+            mVD.Resolucion(true);
         }
     }
 }
