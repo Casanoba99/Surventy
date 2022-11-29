@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 [Serializable]
 public struct CartaPrfb
@@ -45,5 +46,8 @@ public class SelectArma : MonoBehaviour
 
             cartas[i].AsignarValores();
         }
+
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(cartas[0].gameObject);
     }
 }

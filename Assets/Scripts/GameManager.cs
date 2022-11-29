@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
     {
         if (tD) tiempoDelta = Time.deltaTime;
 
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             start = !start;
             tD = !tD;

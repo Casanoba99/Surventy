@@ -6,6 +6,7 @@ using UnityEngine;
 public class AtaqueCorte : MonoBehaviour
 {
     GameManager manager;
+    AudioSource source;
     Coroutine slashCoro, targetCoro;
 
     public Transform target;
@@ -16,6 +17,7 @@ public class AtaqueCorte : MonoBehaviour
     private void Start()
     {
         manager = GameManager.gm;
+        source = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -40,7 +42,11 @@ public class AtaqueCorte : MonoBehaviour
     {
         yield return new WaitForSeconds(cooldown);
 
-        if (target && manager.start) _ = Instantiate(prefb, transform.position, Quaternion.identity, transform);
+        if (target && manager.start)
+        {
+            _ = Instantiate(prefb, transform.position, Quaternion.identity, transform);
+            source.Play();
+        }
 
         slashCoro = null;
     }

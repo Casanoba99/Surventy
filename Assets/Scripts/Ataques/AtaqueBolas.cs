@@ -5,6 +5,7 @@ using UnityEngine;
 public class AtaqueBolas : MonoBehaviour
 {
     GameManager manager;
+    AudioSource source;
     Coroutine targetCoro, bolasCoro;
 
     public Transform target;
@@ -19,6 +20,7 @@ public class AtaqueBolas : MonoBehaviour
     void Start()
     {
         manager = GameManager.gm;
+        source = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -47,6 +49,7 @@ public class AtaqueBolas : MonoBehaviour
         {
             Rotacion();
             _ = Instantiate(prefab, transform.position, transform.rotation, transform);
+            source.Play();
         }
 
         bolasCoro = null;

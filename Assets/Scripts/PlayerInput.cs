@@ -8,6 +8,7 @@ public class PlayerInput : MonoBehaviour
     GameManager manager;
     Coroutine vidaCoro;
     SpriteRenderer sr;
+    AudioSource source;
     Animator anim;
 
     float X;
@@ -26,6 +27,7 @@ public class PlayerInput : MonoBehaviour
     private void Start()
     {
         manager = GameManager.gm;
+        source = GetComponent<AudioSource>();
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
     }
@@ -64,7 +66,8 @@ public class PlayerInput : MonoBehaviour
     IEnumerator PerderVida()
     {
         vida--;
-        bVida.fillAmount -= .1f / 2;
+        bVida.fillAmount -= .1f;
+        source.Play();
 
         if (vida <= 0)
         {

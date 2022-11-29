@@ -1,13 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class EnemigosInput : MonoBehaviour
 {
     readonly GameManager manager = GameManager.gm;
-
+    AudioSource source;
+    
     public Transform target;
     public float velocidad;
+
+    private void Start()
+    {
+        source= GetComponent<AudioSource>();
+    }
 
     void Update()
     {
@@ -22,7 +29,11 @@ public class EnemigosInput : MonoBehaviour
     {
         if (collision.CompareTag("Slash"))
         {
-            Destroy(gameObject);
+            source.Play();
+            GetComponent<BoxCollider2D>().enabled = false;
+            GetComponent<SpriteRenderer>().enabled = false;
+            GetComponent<ShadowCaster2D>().enabled = false;
+            Destroy(gameObject, 1);
         }
     }
 }
