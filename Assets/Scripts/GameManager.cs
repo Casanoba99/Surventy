@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -27,6 +28,7 @@ public class GameManager : MonoBehaviour
     [Space(5)]
     public GameObject sArma;
     public GameObject mPausa;
+    public GameObject bReanudar;
     public VictoriaDerrota mVD;
     [Space(5)]
     public Image tran;
@@ -47,11 +49,16 @@ public class GameManager : MonoBehaviour
     {
         if (tD) tiempoDelta = Time.deltaTime;
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Start"))
         {
+            mPausa.GetComponent<AudioSource>().Play();
+
             start = !start;
             tD = !tD;
             mPausa.SetActive(true);
+
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(bReanudar);
         }
 
         // Cuenta atras
