@@ -18,10 +18,17 @@ public class MenuPausa : MonoBehaviour
     [Header("Audio")]
     public AudioSource source;
     public AudioMixer aMixer;
+    [Space(5)]
+    public Slider sMusica;
+    public Slider sSonido;
 
     private void Start()
     {
         manager = GameManager.gm;
+
+        // Audio
+        sMusica.value = PlayerPrefs.GetFloat("Musica");
+        sSonido.value = PlayerPrefs.GetFloat("Sonido");
     }
 
     public void Reanudar()
@@ -54,11 +61,13 @@ public class MenuPausa : MonoBehaviour
     public void Musica(float valor)
     {
         aMixer.SetFloat("Musica", valor);
+        PlayerPrefs.SetFloat("Musica", valor);
     }
 
     public void Sonido(float valor)
     {
         source.Play();
         aMixer.SetFloat("Sonido", valor);
+        PlayerPrefs.SetFloat("Sonido", valor);
     }
 }

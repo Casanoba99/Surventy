@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
 
     Coroutine limpiarCoro;
 
+    bool pOpen = false;
     [HideInInspector]
     public bool tD = false;
     [HideInInspector]
@@ -49,16 +50,20 @@ public class GameManager : MonoBehaviour
     {
         if (tD) tiempoDelta = Time.deltaTime;
 
-        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Start"))
+        if (CanOpenPausa())
         {
-            mPausa.GetComponent<AudioSource>().Play();
+            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Start"))
+            {
+                mPausa.GetComponent<AudioSource>().Play();
 
-            start = !start;
-            tD = !tD;
-            mPausa.SetActive(true);
+                start = !start;
+                tD = !tD;
+                pOpen = !pOpen;
+                mPausa.SetActive(pOpen);
 
-            EventSystem.current.SetSelectedGameObject(null);
-            EventSystem.current.SetSelectedGameObject(bReanudar);
+                EventSystem.current.SetSelectedGameObject(null);
+                EventSystem.current.SetSelectedGameObject(bReanudar);
+            }
         }
 
         // Cuenta atras
@@ -75,5 +80,11 @@ public class GameManager : MonoBehaviour
             mVD.gameObject.SetActive(true);
             mVD.Resolucion(true);
         }
+    }
+
+    bool CanOpenPausa()
+    {
+        if (mVD.gameObject.activeSelf || sArma.activeSelf) return false;
+        else return true;
     }
 }
