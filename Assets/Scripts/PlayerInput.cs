@@ -65,6 +65,7 @@ public class PlayerInput : MonoBehaviour
 
     IEnumerator PerderVida()
     {
+        anim.SetTrigger("Daño");
         vida--;
         bVida.fillAmount -= .1f;
         source.Play();

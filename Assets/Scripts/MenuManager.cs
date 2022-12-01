@@ -39,6 +39,11 @@ public class MenuManager : MonoBehaviour
         mixer.SetFloat("Sonido", sSonido.value);
     }
 
+    private void Update()
+    {
+
+    }
+
     public void Empezar()
     {
         transicion.CrossFadeAlpha(255, 1, false);
