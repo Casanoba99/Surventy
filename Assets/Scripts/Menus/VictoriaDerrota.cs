@@ -45,6 +45,7 @@ public class VictoriaDerrota : MonoBehaviour
 
     public void Menu()
     {
+        MusicaManager.mManager.CambiarMusicaM();
         source.Play();
         tran.CrossFadeAlpha(255, 1, true);
         SceneManager.LoadScene(0);
