@@ -7,6 +7,7 @@ public class EnemigosInput : MonoBehaviour
 {
     readonly GameManager manager = GameManager.gm;
     AudioSource source;
+    bool vivo = true;
     
     public Transform target;
     public float velocidad;
@@ -21,7 +22,7 @@ public class EnemigosInput : MonoBehaviour
         if (manager.start) 
             transform.position = Vector3.MoveTowards(transform.position, target.position, velocidad * manager.tiempoDelta);
 
-        if (Vector3.Distance(target.position, transform.position) < .2f)
+        if (Vector3.Distance(target.position, transform.position) < .2f && vivo)
             target.GetComponent<PlayerInput>().Start_PierdeVida();
     }
 
@@ -29,8 +30,8 @@ public class EnemigosInput : MonoBehaviour
     {
         if (collision.CompareTag("Slash"))
         {
+            vivo = false;
             source.Play();
-            GetComponent<BoxCollider2D>().enabled = false;
             GetComponent<SpriteRenderer>().enabled = false;
             GetComponent<ShadowCaster2D>().enabled = false;
             Destroy(gameObject, 1);

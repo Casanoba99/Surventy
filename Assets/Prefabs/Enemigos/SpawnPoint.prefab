@@ -99,4 +99,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   padre: {fileID: 0}
   prefb: {fileID: 7293936431836221421, guid: 37fa439ff9151444789a84583dd11ad8, type: 3}
-  tSpawn: 1
+  tSpawn: 0.4

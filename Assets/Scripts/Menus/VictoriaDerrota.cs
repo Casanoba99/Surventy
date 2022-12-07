@@ -23,17 +23,15 @@ public class VictoriaDerrota : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(botones.transform.GetChild(0).gameObject);
 
-        if (v)
+        if (v && !vDText[1].activeSelf)
         {
             vDText[0].SetActive(true);
-            botones.SetActive(true);
         }
-        else
+        else if (!v && !vDText[0].activeSelf)
         {
             vDText[1].SetActive(true);
-            botones.SetActive(true);
         }
-            
+        botones.SetActive(true);
     }
 
     public void Reintentar()

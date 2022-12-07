@@ -14,7 +14,8 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    Coroutine limpiarCoro;
+    Coroutine limpiarCoro, raton;
+    Vector3 ratonPos;
 
     bool pOpen = false;
     [HideInInspector]
@@ -48,6 +49,14 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.F12))
+        {
+            string date = System.DateTime.Now.ToString("dd-MM-yy_HH-mm-ss");
+            ScreenCapture.CaptureScreenshot(Application.persistentDataPath + "/Screenshot_" + date + ".png");
+        }
+
+        Start_RatonMovimiento();
+
         if (tD) tiempoDelta = Time.deltaTime;
 
         if (CanOpenPausa())
@@ -86,5 +95,22 @@ public class GameManager : MonoBehaviour
     {
         if (mVD.gameObject.activeSelf || sArma.activeSelf) return false;
         else return true;
+    }
+
+    void Start_RatonMovimiento()
+    {
+        raton ??= StartCoroutine(RatonMovimiento());
+    }
+
+    IEnumerator RatonMovimiento()
+    {
+        ratonPos = Input.mousePosition;
+
+        yield return new WaitForSeconds(.25f);
+
+        if (Input.mousePosition != ratonPos) Cursor.visible = true;
+        else Cursor.visible = false;
+
+        raton = null;
     }
 }

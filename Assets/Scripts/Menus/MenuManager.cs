@@ -9,6 +9,9 @@ using static UnityEngine.Rendering.DebugUI;
 
 public class MenuManager : MonoBehaviour
 {
+    Coroutine raton;
+    Vector3 ratonPos;
+
     public GameObject mOpciones;
     public GameObject creditos;
     public Image transicion;
@@ -28,7 +31,12 @@ public class MenuManager : MonoBehaviour
     {
         transicion.CrossFadeAlpha(0, 1, false);
 
-        if (mOpciones.activeSelf) mOpciones.SetActive(false);
+
+        if (mOpciones.activeSelf || creditos.activeSelf)
+        {
+            mOpciones.SetActive(false);
+            creditos.SetActive(false);
+        }
 
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(bEmpezar);
@@ -37,6 +45,17 @@ public class MenuManager : MonoBehaviour
         sSonido.value = PlayerPrefs.GetFloat("Sonido");
         mixer.SetFloat("Musica", sMusica.value);
         mixer.SetFloat("Sonido", sSonido.value);
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F12))
+        {
+            string date = System.DateTime.Now.ToString("dd-MM-yy_HH-mm-ss");
+            ScreenCapture.CaptureScreenshot(Application.persistentDataPath + "/Screenshot_" + date + ".png");
+        }
+
+        Start_RatonMovimiento();
     }
 
     public void Empezar()
@@ -84,7 +103,7 @@ public class MenuManager : MonoBehaviour
     public void CreditosAbrir()
     {
         source.Play();
-        
+
         creditos.SetActive(true);
 
         EventSystem.current.SetSelectedGameObject(null);
@@ -105,5 +124,22 @@ public class MenuManager : MonoBehaviour
     {
         source.Play();
         Application.Quit();
+    }
+
+    void Start_RatonMovimiento()
+    {
+        raton ??= StartCoroutine(RatonMovimiento());
+    }
+
+    IEnumerator RatonMovimiento()
+    {
+        ratonPos = Input.mousePosition;
+
+        yield return new WaitForSeconds(.25f);
+
+        if (Input.mousePosition != ratonPos) Cursor.visible = true;
+        else Cursor.visible = false;
+
+        raton = null;
     }
 }
