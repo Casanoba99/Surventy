@@ -15,3 +15,8 @@ MonoBehaviour:
   nombre: Bob the Bot
   imagen: {fileID: 1016329716, guid: cd0593b7469cca9468dd37f597745f00, type: 3}
   descripcion: Protects you in area.
+  "da\xF1o": 1
+  cooldown: 0
+  "areaDa\xF1o": 1
+  radioAtaque: 1.5
+  velocidad: 180

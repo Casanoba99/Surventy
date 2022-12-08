@@ -6,10 +6,12 @@ public class Bolas : MonoBehaviour
 {
     readonly GameManager manager = GameManager.gm;
 
+    public int daño;
     public float vel;
 
     void Start()
     {
+        daño = GetComponentInParent<AtaqueBolas>().daño;
         vel = GetComponentInParent<AtaqueBolas>().velocidad;
     }
 

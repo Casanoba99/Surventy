@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -8118459040470549377}
   - component: {fileID: 4689788153188251404}
   m_Layer: 8
-  m_Name: Ataque Bolas
+  m_Name: Ataque Escopeta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -143,7 +143,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   prefab: {fileID: 2131069416913062699, guid: 6a0b1c2b42cebe14480685a1405246e5, type: 3}
+  carta: {fileID: 11400000, guid: 312d55737ff30cd469b0a67785b749dc, type: 2}
+  "da\xF1o": 0
   cooldown: 3
-  radio: 10
+  "areaDa\xF1o": 0
+  radioAtaque: 0
   velocidad: 10
   vida: 1

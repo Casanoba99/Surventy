@@ -15,3 +15,8 @@ MonoBehaviour:
   nombre: Shotgun
   imagen: {fileID: 21300000, guid: 84e2c016170984c4ca51bed2467fd4c4, type: 3}
   descripcion: Shoot 3 projectiles.
+  "da\xF1o": 1
+  cooldown: 3
+  "areaDa\xF1o": 1
+  radioAtaque: 10
+  velocidad: 10

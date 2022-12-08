@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2131069416913062698}
   m_Layer: 0
-  m_Name: Bolas
+  m_Name: Bolas Escopeta
   m_TagString: Slash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

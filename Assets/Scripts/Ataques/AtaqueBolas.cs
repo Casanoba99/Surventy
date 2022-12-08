@@ -10,17 +10,27 @@ public class AtaqueBolas : MonoBehaviour
 
     public Transform target;
     public GameObject prefab;
-    public int cooldown;
-    public int radio;
+    public CartasSO carta;
+
+    [Header("Stats")]
+    public int daño;
+    public float cooldown;
+    public float areaDaño;
+    public float radioAtaque;
+    public float velocidad;
 
     [Header("Bolas")]
-    public int velocidad;
     public int vida;
 
     void Start()
     {
         manager = GameManager.gm;
         source = GetComponent<AudioSource>();
+
+        daño = carta.daño;
+        cooldown = carta.cooldown;
+        areaDaño = carta.areaDaño;
+        radioAtaque = carta.radioAtaque;
     }
 
     void Update()
@@ -62,11 +72,11 @@ public class AtaqueBolas : MonoBehaviour
 
     IEnumerator SeleccionarTarget()
     {
-        Collider2D[] nearTargets = Physics2D.OverlapCircleAll(transform.position, radio, LayerMask.GetMask("Enemigo"));
+        Collider2D[] nearTargets = Physics2D.OverlapCircleAll(transform.position, radioAtaque, LayerMask.GetMask("Enemigo"));
 
         for (int i = 0; i < nearTargets.Length; i++)
         {
-            if (Vector2.Distance(transform.position, nearTargets[i].transform.position) < (radio / 2))
+            if (Vector2.Distance(transform.position, nearTargets[i].transform.position) < (radioAtaque / 2))
             {
                 target = nearTargets[i].transform;
             }

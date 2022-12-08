@@ -6,12 +6,18 @@ public class Slash : MonoBehaviour
 {
     readonly GameManager manager = GameManager.gm;
 
-    public float vel;
     public float vida;
+    [Space(5)]
+    public float daño;
+    public float vel;
 
     private void Start()
     {
         Rotacion();
+
+        daño = transform.GetComponent<AtaqueCorte>().daño;
+        vel = transform.GetComponent<AtaqueCorte>().velocidad;
+
         transform.parent = null;
     }
 

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2713200852468252065}
   - component: {fileID: 2713200852468252066}
   m_Layer: 8
-  m_Name: Ataque Orbita
+  m_Name: Ataque Bob
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bot: {fileID: 8871749615429758934}
+  carta: {fileID: 11400000, guid: 57248546af964b64fa308fcc7d6ac8ee, type: 2}
+  "da\xF1o": 0
   torque: 180
 --- !u!1 &8871749615429758933
 GameObject:

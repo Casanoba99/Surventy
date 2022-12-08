@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public static GameManager gm;
     private void Awake()
     {
+        if (!transicion.gameObject.activeSelf) transicion.gameObject.SetActive(true);
         if (gm == null) gm = this;
     }
     #endregion
@@ -33,7 +34,7 @@ public class GameManager : MonoBehaviour
     public GameObject bReanudar;
     public VictoriaDerrota mVD;
     [Space(5)]
-    public Image tran;
+    public Image transicion;
 
     private void Start()
     {
@@ -44,7 +45,7 @@ public class GameManager : MonoBehaviour
             mVD.gameObject.SetActive(false);
         }
 
-        tran.CrossFadeAlpha(0, 1, true);
+        transicion.CrossFadeAlpha(0, 1, true);
     }
 
     void Update()

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1834360593469917993}
   - component: {fileID: 7488879337915537105}
   m_Layer: 8
-  m_Name: Ataque Slash
+  m_Name: Ataque Espada
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -143,5 +143,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   prefb: {fileID: 7669862216885065282, guid: 0ab5b878b30311b4b892f2552352abb8, type: 3}
+  carta: {fileID: 11400000, guid: a92a10fb570eca2498ea4abf4d6eb52b, type: 2}
+  "da\xF1o": 0
   cooldown: 2
-  radio: 10
+  "areaDa\xF1o": 0
+  radioAtaque: 0
+  velocidad: 0

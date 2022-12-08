@@ -15,3 +15,8 @@ MonoBehaviour:
   nombre: Laser Sword
   imagen: {fileID: 21300000, guid: 4036a3bbf75640a44bc7cb4cf2be3cca, type: 3}
   descripcion: Create a laser slash.
+  "da\xF1o": 1
+  cooldown: 2
+  "areaDa\xF1o": 1
+  radioAtaque: 10
+  velocidad: 7
