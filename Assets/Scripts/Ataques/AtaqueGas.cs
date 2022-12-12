@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class AtaqueCorte : MonoBehaviour
+public class AtaqueGas : MonoBehaviour
 {
     GameManager manager;
     AudioSource source;
-    Coroutine slashCoro, targetCoro;
+    Coroutine gasCoro, targetCoro;
 
     public Transform target;
     public GameObject prefb;
@@ -39,18 +39,18 @@ public class AtaqueCorte : MonoBehaviour
             // Seleccionar objetivo
             Start_SelecTarget();
             // Instanciar ataque
-            Start_Slash();
+            Start_Gas();
         }
     }
 
     //---------------------------------------------------------------------------------------------
 
-    void Start_Slash()
+    void Start_Gas()
     {
-        slashCoro ??= StartCoroutine(Slash());
+        gasCoro ??= StartCoroutine(Gas());
     }
 
-    IEnumerator Slash()
+    IEnumerator Gas()
     {
         yield return new WaitForSeconds(cooldown);
 
@@ -60,7 +60,7 @@ public class AtaqueCorte : MonoBehaviour
             source.Play();
         }
 
-        slashCoro = null;
+        gasCoro = null;
     }
 
     void Start_SelecTarget()

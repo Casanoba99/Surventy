@@ -358,6 +358,8 @@ MonoBehaviour:
     prfb: {fileID: 7488879337915537103, guid: efb8d46751e4c534793e12e8ad9f64d0, type: 3}
   - carta: {fileID: 11400000, guid: 312d55737ff30cd469b0a67785b749dc, type: 2}
     prfb: {fileID: 943232816745978289, guid: fef38f502d2dff34fb65f5ee6bdf54ab, type: 3}
+  - carta: {fileID: 11400000, guid: f4c24cc48e93b864491d918591a5127f, type: 2}
+    prfb: {fileID: 8296716300020108080, guid: d6fc99f4bb30c8a4faa5d84be62c787a, type: 3}
   cartas:
   - {fileID: 1093909382}
   - {fileID: 1534305172}
@@ -13050,7 +13052,7 @@ MonoBehaviour:
   m_Intensity: 0.4
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 00000000a7c7053dd9aaf10919fc0c82
+  m_ApplyToSortingLayers: 00000000d9aaf109a7c7053d19fc0c82
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0

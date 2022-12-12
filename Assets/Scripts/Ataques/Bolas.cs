@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Bolas : MonoBehaviour
 {
-    readonly GameManager manager = GameManager.gm;
+    GameManager manager => GameManager.gm;
 
+    public float vida;
     public int daño;
     public float vel;
 
@@ -13,10 +14,12 @@ public class Bolas : MonoBehaviour
     {
         daño = GetComponentInParent<AtaqueBolas>().daño;
         vel = GetComponentInParent<AtaqueBolas>().velocidad;
+        transform.parent = null;
     }
 
     void Update()
     {
         transform.position = transform.position + (manager.tiempoDelta * vel * transform.right);
+        Destroy(gameObject, vida);
     }
 }

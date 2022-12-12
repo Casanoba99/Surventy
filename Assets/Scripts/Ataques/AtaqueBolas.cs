@@ -31,6 +31,7 @@ public class AtaqueBolas : MonoBehaviour
         cooldown = carta.cooldown;
         areaDaño = carta.areaDaño;
         radioAtaque = carta.radioAtaque;
+        velocidad = carta.velocidad;
     }
 
     void Update()
