@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8296716300020108086}
   m_Layer: 8
   m_Name: Ataque Gas
-  m_TagString: Slash
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

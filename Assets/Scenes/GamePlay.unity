@@ -13317,9 +13317,9 @@ MonoBehaviour:
   enemigos:
   - {fileID: 2606042027175538372, guid: ace0e463cd6e1424596647f6b57e898e, type: 3}
   target: {fileID: 1002713442}
-  cantidad: 100
+  cantidad: 10
   hijos: 0
-  min: 70
+  min: 2
   map: {fileID: 1461666105}
   distancia: 2
   tiempoSpawn: 0.1

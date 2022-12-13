@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Gas Grenade
   m_EditorClassIdentifier: 
   nombre: Gas Grenade
-  imagen: {fileID: -1670476405, guid: e963dda16d9a50440bfd127206c246fa, type: 3}
+  imagen: {fileID: -655408140, guid: 8022a54765810f544895830f60d6ec6c, type: 3}
   descripcion: Make a toxic cloud.
   "da\xF1o": 1
   cooldown: 3
   "areaDa\xF1o": 1
   radioAtaque: 10
-  velocidad: 5
+  velocidad: 10

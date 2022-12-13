@@ -5,36 +5,46 @@ using UnityEngine.Rendering.Universal;
 
 public class EnemigosInput : MonoBehaviour
 {
-    readonly GameManager manager = GameManager.gm;
-    AudioSource source;
+    GameManager Manager => GameManager.gm;
+    AudioSource Source => GetComponent<AudioSource>();
+    ParticleSystem Ps => GetComponent<ParticleSystem>();
+
     bool vivo = true;
-    
+
     public Transform target;
+    [Header("Stats")]
+    public int vida;
     public float velocidad;
 
     private void Start()
     {
-        source= GetComponent<AudioSource>();
+
     }
 
     void Update()
     {
-        if (manager.start) 
-            transform.position = Vector3.MoveTowards(transform.position, target.position, velocidad * manager.tiempoDelta);
+        if (Manager.start)
+            transform.position = Vector3.MoveTowards(transform.position, target.position, velocidad * Manager.tiempoDelta);
 
-        if (Vector3.Distance(target.position, transform.position) < .2f && vivo)
+        if (Vector3.Distance(target.position, transform.position) < .2f && vida > 0)
             target.GetComponent<PlayerInput>().Start_PierdeVida();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Slash"))
+        if (collision.CompareTag("Slash") && vida > 0)
         {
-            vivo = false;
-            source.Play();
-            GetComponent<SpriteRenderer>().enabled = false;
-            GetComponent<ShadowCaster2D>().enabled = false;
-            Destroy(gameObject, 1);
+            vida--;
+            if (vida <= 0 && vivo)
+            {
+                vivo = false;
+                velocidad = 0;
+                GetComponent<SpriteRenderer>().enabled = false;
+                GetComponent<ShadowCaster2D>().enabled = false;
+                Ps.Play();
+                Destroy(gameObject, 1);
+            }
+            Source.Play();
         }
     }
 }
