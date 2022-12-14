@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &19656343
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2123,7 +2123,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 91688629835792722, guid: c6a010630aee1e64c8330510bc08a249, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 230.51996
+      value: 278.52002
       objectReference: {fileID: 0}
     - target: {fileID: 91688629835792722, guid: c6a010630aee1e64c8330510bc08a249, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -4889,13 +4889,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tD: 0
   tiempoDelta: 0
-  bTiempo: {fileID: 1593475388}
+  barraTiempo: {fileID: 1593475388}
   start: 0
   tiempo: 20
-  sArma: {fileID: 171497797}
-  mPausa: {fileID: 1334919555}
-  bReanudar: {fileID: 2003102654}
-  mVD: {fileID: 505976946}
+  ronda: 0
+  maxRondas: 10
+  seleccionarArma: {fileID: 171497797}
+  menuPausa: {fileID: 1334919555}
+  botonReanudar: {fileID: 2003102654}
+  menuVD: {fileID: 505976946}
   transicion: {fileID: 19656344}
 --- !u!1 &1461666102
 GameObject:
@@ -12865,7 +12867,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 91688629835792722, guid: c6a010630aee1e64c8330510bc08a249, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 691.55994
+      value: 835.56006
       objectReference: {fileID: 0}
     - target: {fileID: 91688629835792722, guid: c6a010630aee1e64c8330510bc08a249, type: 3}
       propertyPath: m_AnchoredPosition.y

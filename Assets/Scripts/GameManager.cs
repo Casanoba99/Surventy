@@ -25,24 +25,29 @@ public class GameManager : MonoBehaviour
     public float tiempoDelta;
 
     [Header("Gameplay")]
-    public Image bTiempo;
+    public Image barraTiempo;
     public bool start = false;
     public float tiempo;
-    [Space(5)]
-    public GameObject sArma;
-    public GameObject mPausa;
-    public GameObject bReanudar;
-    public VictoriaDerrota mVD;
+
+    [Header("Rondas")]
+    public int ronda;
+    public int maxRondas = 10;
+
+    [Header("Menus")]
+    public GameObject seleccionarArma;
+    public GameObject menuPausa;
+    public GameObject botonReanudar;
+    public VictoriaDerrota menuVD;
     [Space(5)]
     public Image transicion;
 
     private void Start()
     {
-        if (!sArma.activeSelf)
+        if (!seleccionarArma.activeSelf)
         {
-            sArma.SetActive(true);
-            mPausa.SetActive(false);
-            mVD.gameObject.SetActive(false);
+            seleccionarArma.SetActive(true);
+            menuPausa.SetActive(false);
+            menuVD.gameObject.SetActive(false);
         }
 
         transicion.CrossFadeAlpha(0, 1, true);
@@ -50,6 +55,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        // Capturas
         if (Input.GetKeyDown(KeyCode.F12))
         {
             string date = System.DateTime.Now.ToString("dd-MM-yy_HH-mm-ss");
@@ -58,21 +64,23 @@ public class GameManager : MonoBehaviour
 
         Start_RatonMovimiento();
 
+        // Control del tiempo
         if (tD) tiempoDelta = Time.deltaTime;
 
+        // Menu Pausa
         if (CanOpenPausa())
         {
             if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Start"))
             {
-                mPausa.GetComponent<AudioSource>().Play();
+                menuPausa.GetComponent<AudioSource>().Play();
 
                 start = !start;
                 tD = !tD;
                 pOpen = !pOpen;
-                mPausa.SetActive(pOpen);
+                menuPausa.SetActive(pOpen);
 
                 EventSystem.current.SetSelectedGameObject(null);
-                EventSystem.current.SetSelectedGameObject(bReanudar);
+                EventSystem.current.SetSelectedGameObject(botonReanudar);
             }
         }
 
@@ -80,21 +88,26 @@ public class GameManager : MonoBehaviour
         if (start)
         {
             tiempo -= tiempoDelta;
-            bTiempo.fillAmount = tiempo / 20;
+            barraTiempo.fillAmount = tiempo / 20;
         }
 
-        if (tiempo <= 0 && start == true)
+        if (tiempo <= 0 && start == true && ronda < 10)
         {
+            ronda++;
             start = false;
             tD = false;
-            mVD.gameObject.SetActive(true);
-            mVD.Resolucion(true);
+            seleccionarArma.SetActive(true);
+            seleccionarArma.GetComponent<SelectArma>().ImprimirCartas();
         }
+
+        // TERMINAR RONDA 10
+        //menuVD.gameObject.SetActive(true);
+        //menuVD.Resolucion(true);
     }
 
     bool CanOpenPausa()
     {
-        if (mVD.gameObject.activeSelf || sArma.activeSelf) return false;
+        if (menuVD.gameObject.activeSelf || seleccionarArma.activeSelf) return false;
         else return true;
     }
 

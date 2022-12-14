@@ -22,16 +22,13 @@ public class SelectArma : MonoBehaviour
     void Start()
     {
         ints = new List<int>(new int[cartaPrfb.Length]);
-        for (int i = 0; i < ints.Count; i++)
-        {
-            ints[i] = -1;
-        }
-
         ImprimirCartas();
     }
 
-    void ImprimirCartas()
+    public void ImprimirCartas()
     {
+        LimpiarCarta();
+
         for (int i = 0; i < cartas.Length; i++)
         {
             nCarta = UnityEngine.Random.Range(0, cartaPrfb.Length);
@@ -49,5 +46,20 @@ public class SelectArma : MonoBehaviour
 
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(cartas[0].gameObject);
+    }
+
+    void LimpiarCarta()
+    {
+        for (int i = 0; i < ints.Count; i++)
+        {
+            ints[i] = -1;
+        }
+
+        for (int i = 0; i < cartas.Length; i++)
+        {
+            cartas[i].carta = null;
+            cartas[i].prfb = null;
+            cartas[i].LimpiarValores();
+        }
     }
 }
