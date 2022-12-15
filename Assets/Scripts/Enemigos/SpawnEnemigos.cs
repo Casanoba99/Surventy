@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -6,37 +7,33 @@ using UnityEngine.Tilemaps;
 
 public class SpawnEnemigos : MonoBehaviour
 {
-    GameManager manager;
+    GameManager Manager => GameManager.gm;
     Coroutine spawnCoro;
+
+    int hijos;
+    bool spawn = false;
 
     [Header("Enemigos")]
     public GameObject[] enemigos;
     public Transform target;
-    public int cantidad;
-    public int hijos;
-    public int min;
+    public int cantidad = 10;
+    public int min = 5;
 
-    bool spawn = false;
     [Header("Spawn Area")]
     public Tilemap map;
     public int distancia;
     public float tiempoSpawn = .2f;
 
-    private void Start()
-    {
-        manager = GameManager.gm;
-    }
-
     void Update()
     {
         hijos = transform.childCount;
 
-        if (manager.start && !spawn)
+        if (Manager.start && !spawn)
         {
             Start_SpawnPoint();
         }
 
-        if (manager.start && spawn && hijos < min)
+        if (Manager.start && spawn && hijos < min)
         {
             Start_SpawnPoint();
         }
@@ -68,8 +65,8 @@ public class SpawnEnemigos : MonoBehaviour
 
         do
         {
-            _x = Random.Range(-(map.size.x/2), map.size.x / 2);
-            _y = Random.Range(-(map.size.y / 2), map.size.y / 2);
+            _x = UnityEngine.Random.Range(-(map.size.x/2), map.size.x / 2);
+            _y = UnityEngine.Random.Range(-(map.size.y / 2), map.size.y / 2);
             pos = new Vector2(_x, _y);
         }
         while (Vector2.Distance(target.position, pos) < distancia);

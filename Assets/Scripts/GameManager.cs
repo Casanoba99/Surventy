@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -30,8 +31,13 @@ public class GameManager : MonoBehaviour
     public float tiempo;
 
     [Header("Rondas")]
+    public TextMeshProUGUI rondasTexto;
     public int ronda;
     public int maxRondas = 10;
+    [Space(5)]
+    public SpawnEnemigos spawn;
+    public int incrementoEnemigos;
+    public int incrementoEnemigosMin;
 
     [Header("Menus")]
     public GameObject seleccionarArma;
@@ -50,6 +56,7 @@ public class GameManager : MonoBehaviour
             menuVD.gameObject.SetActive(false);
         }
 
+        rondasTexto.text = "" + ronda;
         transicion.CrossFadeAlpha(0, 1, true);
     }
 
@@ -91,9 +98,13 @@ public class GameManager : MonoBehaviour
             barraTiempo.fillAmount = tiempo / 20;
         }
 
+        // Final Ronda
         if (tiempo <= 0 && start == true && ronda < 10)
         {
             ronda++;
+            spawn.cantidad += incrementoEnemigos;
+            spawn.min += incrementoEnemigosMin;
+            rondasTexto.text = "" + ronda;
             start = false;
             tD = false;
             seleccionarArma.SetActive(true);

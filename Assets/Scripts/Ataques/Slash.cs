@@ -15,9 +15,8 @@ public class Slash : MonoBehaviour
     {
         Rotacion();
 
-        daño = transform.GetComponent<AtaqueCorte>().daño;
-        vel = transform.GetComponent<AtaqueCorte>().velocidad;
-
+        daño = transform.GetComponentInParent<AtaqueCorte>().daño;
+        vel = transform.GetComponentInParent<AtaqueCorte>().velocidad;
         transform.parent = null;
     }
 

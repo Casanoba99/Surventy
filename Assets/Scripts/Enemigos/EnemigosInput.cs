@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
 public class EnemigosInput : MonoBehaviour
 {
+    Coroutine velCoro;
     GameManager Manager => GameManager.gm;
+    Animator anims => GetComponent<Animator>();
     AudioSource Source => GetComponent<AudioSource>();
     ParticleSystem Ps => GetComponent<ParticleSystem>();
 
@@ -15,11 +18,6 @@ public class EnemigosInput : MonoBehaviour
     [Header("Stats")]
     public int vida;
     public float velocidad;
-
-    private void Start()
-    {
-
-    }
 
     void Update()
     {
@@ -35,6 +33,9 @@ public class EnemigosInput : MonoBehaviour
         if (collision.CompareTag("Slash") && vida > 0)
         {
             vida--;
+            anims.SetTrigger("Daño");
+            Start_PausaVelocidad();
+
             if (vida <= 0 && vivo)
             {
                 vivo = false;
@@ -46,5 +47,20 @@ public class EnemigosInput : MonoBehaviour
             }
             Source.Play();
         }
+    }
+
+    void Start_PausaVelocidad()
+    {
+        velCoro ??= StartCoroutine(PausaVelocidad());
+    }
+
+    IEnumerator PausaVelocidad()
+    {
+        float vel = velocidad;
+        velocidad = 0;
+        yield return new WaitForSeconds(.5f);
+        velocidad = vel;
+
+        velCoro = null;
     }
 }
