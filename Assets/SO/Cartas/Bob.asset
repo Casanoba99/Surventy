@@ -20,3 +20,9 @@ MonoBehaviour:
   "areaDa\xF1o": 1
   radioAtaque: 1.5
   velocidad: 180
+  nivel:
+  - "da\xF1o": 0
+    cooldown: 0
+    "areaDa\xF1o": 0
+    radioAtaque: 0
+    velocidad: 0

@@ -19,4 +19,4 @@ MonoBehaviour:
   cooldown: 3
   "areaDa\xF1o": 1
   radioAtaque: 10
-  velocidad: 10
+  velocidad: 5

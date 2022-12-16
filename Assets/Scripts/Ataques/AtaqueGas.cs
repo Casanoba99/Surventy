@@ -25,11 +25,11 @@ public class AtaqueGas : MonoBehaviour
         manager = GameManager.gm;
         source = GetComponent<AudioSource>();
 
-        daño = carta.daño;
-        cooldown = carta.cooldown;
-        areaDaño = carta.areaDaño;
-        radioAtaque = carta.radioAtaque;
-        velocidad = carta.velocidad;
+        daño = carta.nivel[0].daño;
+        cooldown = carta.nivel[0].cooldown;
+        areaDaño = carta.nivel[0].areaDaño;
+        radioAtaque = carta.nivel[0].radioAtaque;
+        velocidad = carta.nivel[0].velocidad;
     }
 
     void Update()

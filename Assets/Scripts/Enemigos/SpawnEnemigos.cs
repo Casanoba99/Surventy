@@ -74,4 +74,12 @@ public class SpawnEnemigos : MonoBehaviour
         return pos;
     }
     #endregion
+
+    public void EliminarEnemigos()
+    {
+        for (int i = 0; i < hijos; i++)
+        {
+            Destroy(transform.GetChild(i).gameObject);
+        }
+    }
 }

@@ -37,9 +37,6 @@ public class Cartas : MonoBehaviour
 
         GameObject.Find("SelectArma").SetActive(false);
 
-        manager.tiempo = 20;
-        manager.barraTiempo.fillAmount = 1;
-        manager.start = true;
-        manager.tD = true;
+        manager.EmpezarRonda();
     }
 }

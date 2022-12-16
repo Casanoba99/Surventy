@@ -16,8 +16,8 @@ public class AtaqueOrbita : MonoBehaviour
     private void Start()
     {
         manager = GameManager.gm;
-        daño = carta.daño;
-        torque = carta.velocidad;
+        daño = carta.nivel[0].daño;
+        torque = carta.nivel[0].velocidad;
     }
 
     void Update()

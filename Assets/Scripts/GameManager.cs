@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public float tiempoDelta;
 
+    public Transform player;
+
     [Header("Gameplay")]
     public Image barraTiempo;
     public bool start = false;
@@ -34,7 +36,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI rondasTexto;
     public int ronda;
     public int maxRondas = 10;
-    [Space(5)]
+    [Space(10)]
     public SpawnEnemigos spawn;
     public int incrementoEnemigos;
     public int incrementoEnemigosMin;
@@ -69,6 +71,7 @@ public class GameManager : MonoBehaviour
             ScreenCapture.CaptureScreenshot(Application.persistentDataPath + "/Screenshot_" + date + ".png");
         }
 
+        // Raton
         Start_RatonMovimiento();
 
         // Control del tiempo
@@ -98,22 +101,41 @@ public class GameManager : MonoBehaviour
             barraTiempo.fillAmount = tiempo / 20;
         }
 
-        // Final Ronda
+        // Termina la Ronda
         if (tiempo <= 0 && start == true && ronda < 10)
         {
-            ronda++;
-            spawn.cantidad += incrementoEnemigos;
-            spawn.min += incrementoEnemigosMin;
-            rondasTexto.text = "" + ronda;
-            start = false;
-            tD = false;
-            seleccionarArma.SetActive(true);
-            seleccionarArma.GetComponent<SelectArma>().ImprimirCartas();
+            TerminaRonda();
         }
 
         // TERMINAR RONDA 10
         //menuVD.gameObject.SetActive(true);
         //menuVD.Resolucion(true);
+    }
+
+    public void EmpezarRonda()
+    {
+        tiempo = 20;
+        barraTiempo.fillAmount = 1;
+
+        ronda++;
+        rondasTexto.text = "" + ronda;
+        start = true;
+        tD = true;
+    }
+    
+    void TerminaRonda()
+    {
+        start = false;
+        tD = false;
+
+        spawn.cantidad += incrementoEnemigos;
+        spawn.min += incrementoEnemigosMin;
+        spawn.EliminarEnemigos();
+
+        player.position = Vector2.zero;
+
+        seleccionarArma.SetActive(true);
+        seleccionarArma.GetComponent<SelectArma>().ImprimirCartas();
     }
 
     bool CanOpenPausa()

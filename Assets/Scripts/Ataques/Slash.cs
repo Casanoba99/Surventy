@@ -6,6 +6,9 @@ public class Slash : MonoBehaviour
 {
     readonly GameManager manager = GameManager.gm;
 
+    public enum Nivel { Uno, Dos, Tres, Cuatro};
+
+    public Nivel nivel;
     public float vida;
     [Space(5)]
     public float daño;

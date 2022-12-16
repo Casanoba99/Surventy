@@ -5025,11 +5025,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tD: 0
   tiempoDelta: 0
+  player: {fileID: 1002713442}
   barraTiempo: {fileID: 1593475388}
   start: 0
   tiempo: 20
   rondasTexto: {fileID: 1829338332}
-  ronda: 1
+  ronda: 0
   maxRondas: 10
   spawn: {fileID: 1715231706}
   incrementoEnemigos: 10
@@ -13463,7 +13464,7 @@ MonoBehaviour:
   cantidad: 10
   min: 5
   map: {fileID: 1461666105}
-  distancia: 2
+  distancia: 4
   tiempoSpawn: 0.1
 --- !u!4 &1715231707
 Transform:
