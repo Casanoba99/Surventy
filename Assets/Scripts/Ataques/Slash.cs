@@ -4,28 +4,33 @@ using UnityEngine;
 
 public class Slash : MonoBehaviour
 {
-    readonly GameManager manager = GameManager.gm;
+    GameManager Manager => GameManager.gm;
 
-    public enum Nivel { Uno, Dos, Tres, Cuatro};
-
-    public Nivel nivel;
     public float vida;
     [Space(5)]
+    [Header("Stats")]
     public float daño;
-    public float vel;
+    public float areaDaño;
+    public float velocidad;
 
     private void Start()
     {
         Rotacion();
 
-        daño = transform.GetComponentInParent<AtaqueCorte>().daño;
-        vel = transform.GetComponentInParent<AtaqueCorte>().velocidad;
+        AtaqueCorte Corte = transform.GetComponentInParent<AtaqueCorte>();
+
+        daño = Corte.daño;
+        areaDaño = Corte.areaDaño;
+        velocidad = Corte.velocidad;
+
+        transform.localScale *= areaDaño;
+
         transform.parent = null;
     }
 
     void Update()
     {
-        transform.position = transform.position + (manager.tiempoDelta * vel * transform.right);
+        transform.position = transform.position + (Manager.tiempoDelta * velocidad * transform.right);
         Destroy(gameObject, vida);
     }
 

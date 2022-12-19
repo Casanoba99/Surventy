@@ -31,12 +31,47 @@ public class Cartas : MonoBehaviour
     public void IntanciarArma()
     {
         Transform player = GameObject.Find("Player").transform;
+        bool instanciar = true;
 
-        GameObject arma = Instantiate(prfb, player.position, Quaternion.identity, player);
-        arma.name = carta.nombre;
+        for (int i = 0; i < player.childCount; i++)
+        {
+            GameObject _playerObj = player.GetChild(i).gameObject;
+            if (carta.nombre == _playerObj.name)
+            {
+                ComprobarObjeto(_playerObj);
+                instanciar = false;
+                break;
+            }
+        }
+
+        if (instanciar)
+        {
+            GameObject arma = Instantiate(prfb, player.position, Quaternion.identity, player);
+            arma.name = carta.nombre;
+        }
 
         GameObject.Find("SelectArma").SetActive(false);
 
         manager.EmpezarRonda();
+    }
+
+    void ComprobarObjeto(GameObject obj)
+    {
+        if (obj.name == "Bob the Bot")
+        {
+            //obj.GetComponent<AtaqueOrbita>().CambiarStats();
+        }
+        else if (obj.name == "Gas Grenade")
+        {
+            //obj.GetComponent<AtaqueGas>().CambiarStats();
+        }
+        else if (obj.name == "Laser Sword")
+        {
+            obj.GetComponent<AtaqueCorte>().CambiarStats();
+        }
+        else if (obj.name == "Shotgun")
+        {
+            //obj.GetComponent<AtaqueBolas>().CambiarStats();
+        }
     }
 }
