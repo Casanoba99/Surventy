@@ -1,31 +1,106 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class AtaqueOrbita : MonoBehaviour
 {
-    GameManager manager;
+    public enum Nivel { Uno, Dos, Tres, Cuatro }
 
-    public Transform bot;
+    GameManager Manager => GameManager.gm;
+    int nivelActual = 0;
+
+    public Nivel nivel;
     public CartasSO carta;
 
     [Header("Stats")]
     public int daño;
-    public float torque;
+    public float areaDaño;
+    public float radioAtaque;
+    public float velocidadRot;
 
     private void Start()
     {
-        manager = GameManager.gm;
-        daño = carta.nivel[0].daño;
-        torque = carta.nivel[0].velocidad;
+        CambiarStats();
     }
 
     void Update()
     {
-        if (manager.start)
+        if (Manager.start)
         {
-            transform.Rotate(Vector3.forward, torque * manager.tiempoDelta);
-            bot.Rotate(Vector3.forward, -torque * manager.tiempoDelta);
+            transform.Rotate(Vector3.forward, velocidadRot * Manager.tiempoDelta);
+        }
+    }
+
+    public void CambiarStats()
+    {
+        nivelActual++;
+
+        if (nivelActual == 1)
+        {
+            nivel = Nivel.Uno;
+            transform.GetChild(0).gameObject.SetActive(true);
+        }
+        else if (nivelActual == 2)
+        {
+            nivel = Nivel.Dos;
+            transform.GetChild(1).gameObject.SetActive(true);
+        }
+        else if (nivelActual == 3)
+        {
+            nivel = Nivel.Tres;
+            transform.GetChild(2).gameObject.SetActive(true);
+        }
+        else if (nivelActual == 4)
+        {
+            nivel = Nivel.Cuatro;
+            transform.GetChild(3).gameObject.SetActive(true);
+        }
+
+        switch (nivel)
+        {
+            case Nivel.Uno:
+                daño = carta.nivel[0].daño;
+                areaDaño = carta.nivel[0].areaDaño;
+                radioAtaque = carta.nivel[0].radioAtaque;
+                velocidadRot = carta.nivel[0].velocidad;
+                break;
+            case Nivel.Dos:
+                daño = carta.nivel[1].daño;
+                areaDaño = carta.nivel[1].areaDaño;
+                radioAtaque = carta.nivel[1].radioAtaque;
+                velocidadRot = carta.nivel[1].velocidad;
+                break;
+            case Nivel.Tres:
+                daño = carta.nivel[2].daño;
+                areaDaño = carta.nivel[2].areaDaño;
+                radioAtaque = carta.nivel[2].radioAtaque;
+                velocidadRot = carta.nivel[2].velocidad;
+                break;
+            case Nivel.Cuatro:
+                daño = carta.nivel[3].daño;
+                areaDaño = carta.nivel[3].areaDaño;
+                radioAtaque = carta.nivel[3].radioAtaque;
+                velocidadRot = carta.nivel[3].velocidad;
+                break;
+        }
+
+        for (int i = 0; i < nivelActual; i++)
+        {
+            Debug.Log("For");
+            Transform child = transform.GetChild(i).transform;
+            if (child.GetSiblingIndex() <= 1)
+            {
+                Debug.Log("Radio");
+                child.GetComponent<Bob>().CambiarRadio(new Vector3(radioAtaque, 0, 0));
+            }
+            else if (child.GetSiblingIndex() >= 2)
+            {
+                child.GetComponent<Bob>().CambiarRadio(new Vector3(0, radioAtaque, 0));
+
+            }
+
+            child.localScale = Vector3.one * areaDaño;
         }
     }
 }

@@ -199,7 +199,7 @@ MonoBehaviour:
   - {x: -0.11116612, y: 0.13970688, z: 0}
   m_ShapePathHash: 1936485458
   m_Mesh: {fileID: 0}
-  m_InstanceId: 60264
+  m_InstanceId: 29574
 --- !u!82 &3565995093151479834
 AudioSource:
   m_ObjectHideFlags: 0
@@ -310,7 +310,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   vida: 2
-  velocidad: 2.5
+  velocidad: 2
 --- !u!198 &-2656418991266976056
 ParticleSystem:
   m_ObjectHideFlags: 0

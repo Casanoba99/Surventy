@@ -66,9 +66,17 @@ public class AtaqueCorte : MonoBehaviour
 
     void VariacionAtaque()
     {
-        // Poner aqui la rotacion
-        // Segun el nivel cosas
-        _ = Instantiate(prefb, transform.position, Quaternion.identity, transform);
+        Vector3 _target = target.position;
+        Vector3 dir = _target - transform.position;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+
+        for (int i = 0; i < nivelActual; i++)
+        {
+            GameObject clon = Instantiate(prefb, transform.position, Quaternion.AngleAxis(angle, Vector3.forward), transform);
+            clon.name = "Slash";
+            clon.transform.localScale = Vector3.one * areaDaño;
+            angle += 90f;
+        }
     }
 
     void Start_SelecTarget()
@@ -96,7 +104,7 @@ public class AtaqueCorte : MonoBehaviour
     {
         nivelActual++;
 
-        if(nivelActual  == 1)
+        if (nivelActual == 1)
         {
             nivel = Nivel.Uno;
         }

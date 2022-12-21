@@ -36,6 +36,7 @@ public class MenuPausa : MonoBehaviour
         source.Play();
         manager.start = !manager.start;
         manager.tD = !manager.tD;
+        manager.pOpen = !manager.pOpen;
         gameObject.SetActive(false);
 
         EventSystem.current.SetSelectedGameObject(null);

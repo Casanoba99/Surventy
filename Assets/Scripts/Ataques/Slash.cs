@@ -9,13 +9,13 @@ public class Slash : MonoBehaviour
     public float vida;
     [Space(5)]
     [Header("Stats")]
-    public float daño;
+    public int daño;
     public float areaDaño;
     public float velocidad;
 
     private void Start()
     {
-        Rotacion();
+        //Rotacion();
 
         AtaqueCorte Corte = transform.GetComponentInParent<AtaqueCorte>();
 

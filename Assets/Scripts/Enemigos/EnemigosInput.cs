@@ -32,8 +32,8 @@ public class EnemigosInput : MonoBehaviour
     {
         if (collision.CompareTag("Slash") && vida > 0)
         {
-            vida--;
             anims.SetTrigger("Daño");
+            PerderVida(collision.gameObject);
             Start_PausaVelocidad();
 
             if (vida <= 0 && vivo)
@@ -46,6 +46,26 @@ public class EnemigosInput : MonoBehaviour
                 Destroy(gameObject, 1);
             }
             Source.Play();
+        }
+    }
+
+    void PerderVida(GameObject obj)
+    {
+        if (obj.name == "Bob")
+        {
+            vida -= obj.GetComponentInParent<AtaqueOrbita>().daño;
+        }
+        else if (obj.name == "Gas Grenade")
+        {
+            //obj.GetComponent<AtaqueGas>().CambiarStats();
+        }
+        else if (obj.name == "Slash")
+        {
+            vida -= obj.GetComponent<Slash>().daño;
+        }
+        else if (obj.name == "Shotgun")
+        {
+            //obj.GetComponent<AtaqueBolas>().CambiarStats();
         }
     }
 

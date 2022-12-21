@@ -19,7 +19,8 @@ public class GameManager : MonoBehaviour
     Coroutine limpiarCoro, raton;
     Vector3 ratonPos;
 
-    bool pOpen = false;
+    [HideInInspector]
+    public bool pOpen = false;
     [HideInInspector]
     public bool tD = false;
     [HideInInspector]

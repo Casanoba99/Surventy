@@ -59,7 +59,7 @@ public class Cartas : MonoBehaviour
     {
         if (obj.name == "Bob the Bot")
         {
-            //obj.GetComponent<AtaqueOrbita>().CambiarStats();
+            obj.GetComponent<AtaqueOrbita>().CambiarStats();
         }
         else if (obj.name == "Gas Grenade")
         {
