@@ -71,7 +71,7 @@ public class Cartas : MonoBehaviour
         }
         else if (obj.name == "Shotgun")
         {
-            //obj.GetComponent<AtaqueBolas>().CambiarStats();
+            obj.GetComponent<AtaqueBolas>().CambiarStats();
         }
     }
 }

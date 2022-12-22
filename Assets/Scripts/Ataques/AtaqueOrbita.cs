@@ -87,11 +87,9 @@ public class AtaqueOrbita : MonoBehaviour
 
         for (int i = 0; i < nivelActual; i++)
         {
-            Debug.Log("For");
             Transform child = transform.GetChild(i).transform;
             if (child.GetSiblingIndex() <= 1)
             {
-                Debug.Log("Radio");
                 child.GetComponent<Bob>().CambiarRadio(new Vector3(radioAtaque, 0, 0));
             }
             else if (child.GetSiblingIndex() >= 2)

@@ -5,21 +5,30 @@ using UnityEngine;
 public class Bolas : MonoBehaviour
 {
     GameManager manager => GameManager.gm;
+    
 
     public float vida;
+    [Header("Stats")]
     public int daño;
-    public float vel;
+    public float velocidad;
+    public float areaDaño;
 
     void Start()
     {
-        daño = GetComponentInParent<AtaqueBolas>().daño;
-        vel = GetComponentInParent<AtaqueBolas>().velocidad;
+        AtaqueBolas ataque = GetComponentInParent<AtaqueBolas>();
+
+        daño = ataque.daño;
+        velocidad = ataque.velocidad;
+        areaDaño = ataque.areaDaño;
+
+        transform.localScale *= areaDaño;
+
         transform.parent = null;
     }
 
     void Update()
     {
-        transform.position = transform.position + (manager.tiempoDelta * vel * transform.right);
+        transform.position = transform.position + (manager.tiempoDelta * velocidad * transform.right);
         Destroy(gameObject, vida);
     }
 }

@@ -63,9 +63,9 @@ public class EnemigosInput : MonoBehaviour
         {
             vida -= obj.GetComponent<Slash>().daño;
         }
-        else if (obj.name == "Shotgun")
+        else if (obj.name == "Bola")
         {
-            //obj.GetComponent<AtaqueBolas>().CambiarStats();
+            vida -= obj.GetComponent<Bolas>().daño;
         }
     }
 

@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class AtaqueBolas : MonoBehaviour
 {
-    GameManager manager;
-    AudioSource source;
+    public enum Nivel { Uno, Dos, Tres, Cuatro }
+
+    GameManager manager => GameManager.gm;
+    AudioSource source => GetComponent<AudioSource>();
     Coroutine targetCoro, bolasCoro;
 
+    int nivelActual = 0;
+    int bolasDisparadas = 0;
+
+    public Nivel nivel;
     public Transform target;
     public GameObject prefab;
     public CartasSO carta;
@@ -24,14 +30,7 @@ public class AtaqueBolas : MonoBehaviour
 
     void Start()
     {
-        manager = GameManager.gm;
-        source = GetComponent<AudioSource>();
-
-        daño = carta.nivel[0].daño;
-        cooldown = carta.nivel[0].cooldown;
-        areaDaño = carta.nivel[0].areaDaño;
-        radioAtaque = carta.nivel[0].radioAtaque;
-        velocidad = carta.nivel[0].velocidad;
+        CambiarStats();
     }
 
     void Update()
@@ -59,7 +58,13 @@ public class AtaqueBolas : MonoBehaviour
         if (target && manager.start)
         {
             Rotacion();
-            _ = Instantiate(prefab, transform.position, transform.rotation, transform);
+            GameObject bolas = Instantiate(prefab, transform.position, transform.rotation, transform);
+
+            for (int i = 0; i < bolasDisparadas; i++)
+            {
+                bolas.transform.GetChild(i).gameObject.SetActive(true);
+            }
+
             source.Play();
         }
 
@@ -94,5 +99,59 @@ public class AtaqueBolas : MonoBehaviour
 
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+    }
+
+    public void CambiarStats()
+    {
+        nivelActual++;
+
+        if (nivelActual == 1)
+        {
+            nivel = Nivel.Uno;
+            bolasDisparadas = 3;
+        }
+        else if (nivelActual == 2)
+        {
+            nivel = Nivel.Dos;
+            bolasDisparadas = 7;
+        }
+        else if (nivelActual == 3)
+        {
+            nivel = Nivel.Tres;
+            bolasDisparadas = 12;
+        }
+        else if (nivelActual == 4)
+        {
+            nivel = Nivel.Cuatro;
+            bolasDisparadas = 17;
+        }
+
+        switch (nivel)
+        {
+            case Nivel.Uno:
+                daño = carta.nivel[0].daño;
+                areaDaño = carta.nivel[0].areaDaño;
+                radioAtaque = carta.nivel[0].radioAtaque;
+                velocidad = carta.nivel[0].velocidad;
+                break;
+            case Nivel.Dos:
+                daño = carta.nivel[1].daño;
+                areaDaño = carta.nivel[1].areaDaño;
+                radioAtaque = carta.nivel[1].radioAtaque;
+                velocidad = carta.nivel[1].velocidad;
+                break;
+            case Nivel.Tres:
+                daño = carta.nivel[2].daño;
+                areaDaño = carta.nivel[2].areaDaño;
+                radioAtaque = carta.nivel[2].radioAtaque;
+                velocidad = carta.nivel[2].velocidad;
+                break;
+            case Nivel.Cuatro:
+                daño = carta.nivel[3].daño;
+                areaDaño = carta.nivel[3].areaDaño;
+                radioAtaque = carta.nivel[3].radioAtaque;
+                velocidad = carta.nivel[3].velocidad;
+                break;
+        }
     }
 }

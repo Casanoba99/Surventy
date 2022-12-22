@@ -15,6 +15,7 @@ public class SelectArma : MonoBehaviour
 {
     List<int> ints= new List<int>();
     int nCarta;
+    Transform Player => GameObject.Find("Player").transform;
 
     public CartaPrfb[] cartaPrfb;
     public Cartas[] cartas;
@@ -61,5 +62,19 @@ public class SelectArma : MonoBehaviour
             cartas[i].prfb = null;
             cartas[i].LimpiarValores();
         }
+    }
+
+    bool ComprobarObjetos(GameObject carta)
+    {
+        // Aaaaaaaaaaahhhhhhhh
+        for (int i = 0; i < Player.childCount; i++)
+        {
+            if (Player.GetChild(i).gameObject == carta)
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
