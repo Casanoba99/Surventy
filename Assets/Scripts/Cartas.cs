@@ -60,6 +60,7 @@ public class Cartas : MonoBehaviour
         if (obj.name == "Bob the Bot")
         {
             obj.GetComponent<AtaqueOrbita>().CambiarStats();
+            if (obj.GetComponent<AtaqueOrbita>().nivelActual == 4) BorrarDeLista(obj);
         }
         else if (obj.name == "Gas Grenade")
         {
@@ -68,10 +69,22 @@ public class Cartas : MonoBehaviour
         else if (obj.name == "Laser Sword")
         {
             obj.GetComponent<AtaqueCorte>().CambiarStats();
+            if (obj.GetComponent<AtaqueCorte>().nivelActual == 4) BorrarDeLista(obj);
         }
         else if (obj.name == "Shotgun")
         {
             obj.GetComponent<AtaqueBolas>().CambiarStats();
+            if (obj.GetComponent<AtaqueBolas>().nivelActual == 4) BorrarDeLista(obj);
+        }
+    }
+
+    void BorrarDeLista(GameObject obj)
+    {
+        SelectArma sArma = GameObject.Find("SelectArma").GetComponent<SelectArma>();
+
+        for (int i = 0; i < sArma.cartaPrfb.Count; i++)
+        {
+            if (obj.name == sArma.cartaPrfb[i].carta.nombre) sArma.cartaPrfb.Remove(sArma.cartaPrfb[i]);
         }
     }
 }

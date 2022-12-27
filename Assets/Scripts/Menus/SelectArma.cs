@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -13,16 +14,16 @@ public struct CartaPrfb
 
 public class SelectArma : MonoBehaviour
 {
-    List<int> ints= new List<int>();
+    List<int> ints = new List<int>();
     int nCarta;
     Transform Player => GameObject.Find("Player").transform;
 
-    public CartaPrfb[] cartaPrfb;
+    public List<CartaPrfb> cartaPrfb;
     public Cartas[] cartas;
 
     void Start()
     {
-        ints = new List<int>(new int[cartaPrfb.Length]);
+        ints = new List<int>(new int[cartaPrfb.Count]);
         ImprimirCartas();
     }
 
@@ -32,10 +33,10 @@ public class SelectArma : MonoBehaviour
 
         for (int i = 0; i < cartas.Length; i++)
         {
-            nCarta = UnityEngine.Random.Range(0, cartaPrfb.Length);
+            nCarta = UnityEngine.Random.Range(0, cartaPrfb.Count);
             while (ints.Contains(nCarta))
             {
-                nCarta = UnityEngine.Random.Range(0, cartaPrfb.Length);
+                nCarta = UnityEngine.Random.Range(0, cartaPrfb.Count);
             }
             ints[i] = nCarta;
 
@@ -62,19 +63,5 @@ public class SelectArma : MonoBehaviour
             cartas[i].prfb = null;
             cartas[i].LimpiarValores();
         }
-    }
-
-    bool ComprobarObjetos(GameObject carta)
-    {
-        // Aaaaaaaaaaahhhhhhhh
-        for (int i = 0; i < Player.childCount; i++)
-        {
-            if (Player.GetChild(i).gameObject == carta)
-            {
-                return false;
-            }
-        }
-
-        return true;
     }
 }

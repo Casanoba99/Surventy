@@ -103,14 +103,20 @@ public class GameManager : MonoBehaviour
         }
 
         // Termina la Ronda
-        if (tiempo <= 0 && start == true && ronda < 10)
+        if (tiempo <= 0 && start == true)
         {
-            TerminaRonda();
-        }
+            if (ronda < 10) TerminaRonda();
+            else if (ronda == 10)
+            {
+                start = false;
+                tD = false;
 
-        // TERMINAR RONDA 10
-        //menuVD.gameObject.SetActive(true);
-        //menuVD.Resolucion(true);
+                spawn.EliminarEnemigos();
+
+                menuVD.gameObject.SetActive(true);
+                menuVD.Resolucion(true);
+            }
+        }
     }
 
     public void EmpezarRonda()

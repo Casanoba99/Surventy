@@ -77,7 +77,7 @@ public class PlayerInput : MonoBehaviour
             mVD.Resolucion(false);
         }
 
-        yield return new WaitForSeconds(.25f);
+        yield return new WaitForSeconds(1f);
         vidaCoro = null;
     }
 }

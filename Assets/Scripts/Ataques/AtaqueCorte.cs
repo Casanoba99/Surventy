@@ -10,8 +10,8 @@ public class AtaqueCorte : MonoBehaviour
     GameManager manager;
     AudioSource source;
     Coroutine slashCoro, targetCoro;
-
-    int nivelActual = 0;
+    [HideInInspector]
+    public int nivelActual = 0;
 
     public Transform target;
     public GameObject prefb;

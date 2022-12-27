@@ -8,7 +8,8 @@ public class AtaqueOrbita : MonoBehaviour
     public enum Nivel { Uno, Dos, Tres, Cuatro }
 
     GameManager Manager => GameManager.gm;
-    int nivelActual = 0;
+    [HideInInspector]
+    public int nivelActual = 0;
 
     public Nivel nivel;
     public CartasSO carta;

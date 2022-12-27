@@ -9,8 +9,8 @@ public class AtaqueBolas : MonoBehaviour
     GameManager manager => GameManager.gm;
     AudioSource source => GetComponent<AudioSource>();
     Coroutine targetCoro, bolasCoro;
-
-    int nivelActual = 0;
+    [HideInInspector]
+    public int nivelActual = 0;
     int bolasDisparadas = 0;
 
     public Nivel nivel;
