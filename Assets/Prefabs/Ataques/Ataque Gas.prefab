@@ -141,7 +141,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb794d2a99923a45b3a640cb6266d6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  nivelActual: 0
+  duracion: 0
+  nivel: 0
+  target:
+  - {fileID: 0}
+  - {fileID: 0}
   prefb: {fileID: 6042234402646500358, guid: 5c5305dcaa3099645885ec7df32c8304, type: 3}
   carta: {fileID: 11400000, guid: f4c24cc48e93b864491d918591a5127f, type: 2}
   "da\xF1o": 0

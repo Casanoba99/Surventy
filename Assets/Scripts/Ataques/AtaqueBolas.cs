@@ -9,6 +9,7 @@ public class AtaqueBolas : MonoBehaviour
     GameManager manager => GameManager.gm;
     AudioSource source => GetComponent<AudioSource>();
     Coroutine targetCoro, bolasCoro;
+
     [HideInInspector]
     public int nivelActual = 0;
     int bolasDisparadas = 0;
@@ -130,24 +131,28 @@ public class AtaqueBolas : MonoBehaviour
         {
             case Nivel.Uno:
                 daño = carta.nivel[0].daño;
+                cooldown = carta.nivel[0].cooldown;
                 areaDaño = carta.nivel[0].areaDaño;
                 radioAtaque = carta.nivel[0].radioAtaque;
                 velocidad = carta.nivel[0].velocidad;
                 break;
             case Nivel.Dos:
                 daño = carta.nivel[1].daño;
+                cooldown = carta.nivel[1].cooldown;
                 areaDaño = carta.nivel[1].areaDaño;
                 radioAtaque = carta.nivel[1].radioAtaque;
                 velocidad = carta.nivel[1].velocidad;
                 break;
             case Nivel.Tres:
                 daño = carta.nivel[2].daño;
+                cooldown = carta.nivel[2].cooldown;
                 areaDaño = carta.nivel[2].areaDaño;
                 radioAtaque = carta.nivel[2].radioAtaque;
                 velocidad = carta.nivel[2].velocidad;
                 break;
             case Nivel.Cuatro:
                 daño = carta.nivel[3].daño;
+                cooldown = carta.nivel[3].cooldown;
                 areaDaño = carta.nivel[3].areaDaño;
                 radioAtaque = carta.nivel[3].radioAtaque;
                 velocidad = carta.nivel[3].velocidad;

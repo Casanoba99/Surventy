@@ -28,13 +28,11 @@ public class EnemigosInput : MonoBehaviour
             target.GetComponent<PlayerInput>().Start_PierdeVida();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("Slash") && vida > 0)
         {
-            anims.SetTrigger("Daño");
-            PerderVida(collision.gameObject);
-            Start_PausaVelocidad();
+            Start_RecibirDaño(collision.gameObject);
 
             if (vida <= 0 && vivo)
             {
@@ -49,6 +47,23 @@ public class EnemigosInput : MonoBehaviour
         }
     }
 
+
+    void Start_RecibirDaño(GameObject obj)
+    {
+        velCoro ??= StartCoroutine(RecibirDaño(obj));
+    }
+
+    IEnumerator RecibirDaño(GameObject obj)
+    {
+        anims.SetTrigger("Daño");
+        PerderVida(obj);
+        float vel = velocidad;
+        velocidad /= 2;
+        yield return new WaitForSeconds(.5f);
+        velocidad = vel;
+
+        velCoro = null;
+    }
     void PerderVida(GameObject obj)
     {
         if (obj.name == "Bob")
@@ -57,7 +72,7 @@ public class EnemigosInput : MonoBehaviour
         }
         else if (obj.name == "Gas Grenade")
         {
-            //obj.GetComponent<AtaqueGas>().CambiarStats();
+            vida -= obj.GetComponent<Gas>().daño;
         }
         else if (obj.name == "Slash")
         {
@@ -67,20 +82,5 @@ public class EnemigosInput : MonoBehaviour
         {
             vida -= obj.GetComponent<Bolas>().daño;
         }
-    }
-
-    void Start_PausaVelocidad()
-    {
-        velCoro ??= StartCoroutine(PausaVelocidad());
-    }
-
-    IEnumerator PausaVelocidad()
-    {
-        float vel = velocidad;
-        velocidad = 0;
-        yield return new WaitForSeconds(.5f);
-        velocidad = vel;
-
-        velCoro = null;
     }
 }

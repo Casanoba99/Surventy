@@ -64,7 +64,8 @@ public class Cartas : MonoBehaviour
         }
         else if (obj.name == "Gas Grenade")
         {
-            //obj.GetComponent<AtaqueGas>().CambiarStats();
+            obj.GetComponent<AtaqueGas>().CambiarStats();
+            if (obj.GetComponent<AtaqueGas>().nivelActual == 4) BorrarDeLista(obj);
         }
         else if (obj.name == "Laser Sword")
         {

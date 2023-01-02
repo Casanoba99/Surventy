@@ -29,7 +29,7 @@ MonoBehaviour:
   - "da\xF1o": 2
     cooldown: 1.5
     "areaDa\xF1o": 1.25
-    radioAtaque: 10
+    radioAtaque: 12
     velocidad: 12
   - "da\xF1o": 4
     cooldown: 1

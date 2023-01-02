@@ -50,6 +50,7 @@ public class SpawnEnemigos : MonoBehaviour
         for (int i = 0; i < cantidad; i++)
         {
             GameObject clon = Instantiate(enemigos[0], SpawnPos(), Quaternion.identity);
+            clon.GetComponent<SpawnPoint>().id = i;
             clon.GetComponent<SpawnPoint>().padre = this;
 
             yield return new WaitForSeconds(tiempoSpawn);

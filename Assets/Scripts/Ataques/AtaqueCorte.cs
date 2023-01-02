@@ -10,6 +10,7 @@ public class AtaqueCorte : MonoBehaviour
     GameManager manager;
     AudioSource source;
     Coroutine slashCoro, targetCoro;
+
     [HideInInspector]
     public int nivelActual = 0;
 
