@@ -360,12 +360,6 @@ MonoBehaviour:
     prfb: {fileID: 2713200852468252064, guid: 74b442322af0a9c4bbd273e4343815f5, type: 3}
   - carta: {fileID: 11400000, guid: f4c24cc48e93b864491d918591a5127f, type: 2}
     prfb: {fileID: 8296716300020108080, guid: d6fc99f4bb30c8a4faa5d84be62c787a, type: 3}
-  - carta: {fileID: 11400000, guid: f4c24cc48e93b864491d918591a5127f, type: 2}
-    prfb: {fileID: 8296716300020108080, guid: d6fc99f4bb30c8a4faa5d84be62c787a, type: 3}
-  - carta: {fileID: 11400000, guid: f4c24cc48e93b864491d918591a5127f, type: 2}
-    prfb: {fileID: 8296716300020108080, guid: d6fc99f4bb30c8a4faa5d84be62c787a, type: 3}
-  - carta: {fileID: 11400000, guid: f4c24cc48e93b864491d918591a5127f, type: 2}
-    prfb: {fileID: 8296716300020108080, guid: d6fc99f4bb30c8a4faa5d84be62c787a, type: 3}
   cartas:
   - {fileID: 1093909382}
   - {fileID: 1534305172}

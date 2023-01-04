@@ -9,7 +9,7 @@ public class AtaqueGas : MonoBehaviour
 
     GameManager manager => GameManager.gm;
     AudioSource source => GetComponent<AudioSource>();
-    Coroutine gasCoro, targetCoro;
+    Coroutine gasCoro;
 
     int proyectiles = 0;
 
@@ -19,7 +19,6 @@ public class AtaqueGas : MonoBehaviour
     public int duracion = 0;
 
     public Nivel nivel;
-    public Transform[] target;
     public GameObject prefb;
     public CartasSO carta;
 
@@ -39,8 +38,6 @@ public class AtaqueGas : MonoBehaviour
     {
         if (manager.start)
         {
-            // Seleccionar objetivo
-            Start_SelecTarget();
             // Instanciar ataque
             Start_Gas();
         }
@@ -57,13 +54,12 @@ public class AtaqueGas : MonoBehaviour
     {
         yield return new WaitForSeconds(cooldown);
 
-        if (target[0] && manager.start)
+        if (EnemigosCerca() && manager.start)
         {
             for (int i = 0; i < proyectiles; i++)
             {
                 GameObject gas = Instantiate(prefb, transform.position, Quaternion.identity, transform);
                 gas.name = carta.nombre;
-                gas.GetComponent<Gas>().target = target[i].position;
             }
             source.Play();
         }
@@ -71,27 +67,18 @@ public class AtaqueGas : MonoBehaviour
         gasCoro = null;
     }
 
-    void Start_SelecTarget()
-    {
-        targetCoro ??= StartCoroutine(SeleccionarTarget());
-    }
 
-    IEnumerator SeleccionarTarget()
+    bool EnemigosCerca()
     {
         Collider2D[] nearTargets = Physics2D.OverlapCircleAll(transform.position, radioAtaque, LayerMask.GetMask("Enemigo"));
-
-        for (int j = 0; j < proyectiles; j++)
+        
+        for (int i = 0; i < nearTargets.Length; i++)
         {
-            for (int i = 0; i < nearTargets.Length; i++)
-            {
-                if (Vector2.Distance(transform.position, nearTargets[i].transform.position) < (radioAtaque / 2))
-                {
-                    target[j] = nearTargets[i].transform;
-                }
-            }
+            if (Vector3.Distance(transform.position, nearTargets[i].transform.position) < (radioAtaque / 2))
+                return true;
         }
-        yield return new WaitForEndOfFrame();
-        targetCoro = null;
+
+        return false;
     }
 
     public void CambiarStats()
@@ -106,18 +93,18 @@ public class AtaqueGas : MonoBehaviour
         else if (nivelActual == 2)
         {
             nivel = Nivel.Dos;
-            duracion = 2;
+            duracion = proyectiles = 2;
         }
         else if (nivelActual == 3)
         {
             nivel = Nivel.Tres;
             duracion = 3;
-            proyectiles = 2;
         }
         else if (nivelActual == 4)
         {
             nivel = Nivel.Cuatro;
             duracion = 4;
+            proyectiles = 3;
         }
 
         switch (nivel)
