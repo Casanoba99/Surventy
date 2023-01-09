@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 952a561982c72414d853351f27c6c790, type: 3}
+  m_Name: Bot Turret
+  m_EditorClassIdentifier: 
+  nombre: Bot Turret
+  imagen: {fileID: 1648470130, guid: a655ceb5992f4cc489d56d5edb6368e6, type: 3}
+  descripcion: A turret that shoot.
+  nivel:
+  - "da\xF1o": 1
+    cooldown: 2
+    "areaDa\xF1o": 1
+    radioAtaque: 5
+    velocidad: 5
+  - "da\xF1o": 2
+    cooldown: 2
+    "areaDa\xF1o": 1
+    radioAtaque: 7
+    velocidad: 6
+  - "da\xF1o": 2
+    cooldown: 1.5
+    "areaDa\xF1o": 1.5
+    radioAtaque: 7
+    velocidad: 7
+  - "da\xF1o": 3
+    cooldown: 1.5
+    "areaDa\xF1o": 1.5
+    radioAtaque: 8
+    velocidad: 8
