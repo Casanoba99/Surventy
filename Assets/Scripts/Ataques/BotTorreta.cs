@@ -8,8 +8,10 @@ public class BotTorreta : MonoBehaviour
 
     GameManager Manager => GameManager.gm;
 
-    Transform target;
+    [HideInInspector]
+    public Transform target;
 
+    public Transform shootPos;
     public GameObject shoot;
 
     [Header("Stats")]
@@ -39,6 +41,11 @@ public class BotTorreta : MonoBehaviour
             Start_SelecTarget();
             Start_Disparo();
         }
+
+        if (!Manager.start)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void Start_SelecTarget()
@@ -52,7 +59,7 @@ public class BotTorreta : MonoBehaviour
 
         for (int i = 0; i < nearTargets.Length; i++)
         {
-            if (Vector2.Distance(transform.position, nearTargets[i].transform.position) < (radioAtaque / 2))
+            if (Vector2.Distance(transform.position, nearTargets[i].transform.position) < radioAtaque)
             {
                 target = nearTargets[i].transform;
             }
@@ -73,7 +80,8 @@ public class BotTorreta : MonoBehaviour
 
         if (target)
         {
-            _ = Instantiate(shoot, transform.position, Quaternion.identity, transform);
+            GameObject _shoot = Instantiate(shoot, shootPos.position, Quaternion.identity, transform);
+            _shoot.name = "Shoot";
         }
 
         disparoCoro = null;

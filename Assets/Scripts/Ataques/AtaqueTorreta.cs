@@ -7,7 +7,6 @@ public class AtaqueTorreta : MonoBehaviour
     public enum Nivel { Uno, Dos, Tres, Cuatro }
 
     GameManager Manager => GameManager.gm;
-    AudioSource Source => GetComponent<AudioSource>();
 
     int proyectiles = 0;
     bool instanciados = false;
@@ -40,6 +39,8 @@ public class AtaqueTorreta : MonoBehaviour
             // Instanciar ataque
             InstanciarTorretas();
         }
+
+        if (!Manager.start && !Manager.tD) instanciados = false;
     }
 
     //---------------------------------------------------------------------------------------------

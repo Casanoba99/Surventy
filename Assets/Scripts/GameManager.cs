@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     [Header("Gameplay")]
     public Image barraTiempo;
     public bool start = false;
-    public float tiempo;
+    public float tiempoAtras;
 
     [Header("Rondas")]
     public TextMeshProUGUI rondasTexto;
@@ -98,12 +98,12 @@ public class GameManager : MonoBehaviour
         // Cuenta atras
         if (start)
         {
-            tiempo -= tiempoDelta;
-            barraTiempo.fillAmount = tiempo / 20;
+            tiempoAtras -= tiempoDelta;
+            barraTiempo.fillAmount = tiempoAtras / 20;
         }
 
         // Termina la Ronda
-        if (tiempo <= 0 && start == true)
+        if (tiempoAtras <= 0 && start == true)
         {
             if (ronda < 10) TerminaRonda();
             else if (ronda == 10)
@@ -121,7 +121,7 @@ public class GameManager : MonoBehaviour
 
     public void EmpezarRonda()
     {
-        tiempo = 20;
+        tiempoAtras = 20;
         barraTiempo.fillAmount = 1;
 
         ronda++;

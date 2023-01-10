@@ -77,6 +77,11 @@ public class Cartas : MonoBehaviour
             obj.GetComponent<AtaqueBolas>().CambiarStats();
             if (obj.GetComponent<AtaqueBolas>().nivelActual == 4) BorrarDeLista(obj);
         }
+        else if (obj.name == "Bot Turret")
+        {
+            obj.GetComponent<AtaqueTorreta>().CambiarStats();
+            if (obj.GetComponent<AtaqueTorreta>().nivelActual == 4) BorrarDeLista(obj);
+        }
     }
 
     void BorrarDeLista(GameObject obj)

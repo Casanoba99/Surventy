@@ -23,16 +23,16 @@ MonoBehaviour:
     velocidad: 5
   - "da\xF1o": 2
     cooldown: 2
-    "areaDa\xF1o": 1
-    radioAtaque: 7
-    velocidad: 6
-  - "da\xF1o": 2
-    cooldown: 1.5
     "areaDa\xF1o": 1.5
     radioAtaque: 7
     velocidad: 7
+  - "da\xF1o": 2
+    cooldown: 1
+    "areaDa\xF1o": 2
+    radioAtaque: 7
+    velocidad: 9
   - "da\xF1o": 3
-    cooldown: 1.5
-    "areaDa\xF1o": 1.5
+    cooldown: 0.75
+    "areaDa\xF1o": 2.5
     radioAtaque: 8
-    velocidad: 8
+    velocidad: 10

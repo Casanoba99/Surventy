@@ -24,7 +24,7 @@ public class EnemigosInput : MonoBehaviour
         if (Manager.start)
             transform.position = Vector3.MoveTowards(transform.position, target.position, velocidad * Manager.tiempoDelta);
 
-        if (Vector3.Distance(target.position, transform.position) < .2f && vida > 0)
+        if (Vector3.Distance(target.position, transform.position) < .4f && vida > 0)
             target.GetComponent<PlayerInput>().Start_PierdeVida();
     }
 
@@ -81,6 +81,10 @@ public class EnemigosInput : MonoBehaviour
         else if (obj.name == "Bola")
         {
             vida -= obj.GetComponent<Bolas>().daño;
+        }
+        else if (obj.name == "Shoot")
+        {
+            vida -= obj.GetComponent<BotTurretShoot>().daño;
         }
     }
 }

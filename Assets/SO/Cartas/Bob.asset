@@ -25,14 +25,14 @@ MonoBehaviour:
     cooldown: 0
     "areaDa\xF1o": 1
     radioAtaque: 1.5
-    velocidad: 180
+    velocidad: 157
   - "da\xF1o": 1
     cooldown: 0
     "areaDa\xF1o": 1.5
     radioAtaque: 1.5
-    velocidad: 270
+    velocidad: 224
   - "da\xF1o": 1
     cooldown: 0
     "areaDa\xF1o": 2
     radioAtaque: 3
-    velocidad: 360
+    velocidad: 270
