@@ -78,7 +78,7 @@ public class SpawnEnemigos : MonoBehaviour
 
     public void EliminarEnemigos()
     {
-        for (int i = 0; i < hijos; i++)
+        for (int i = hijos - 1; i >= 0; i--)
         {
             Destroy(transform.GetChild(i).gameObject);
         }

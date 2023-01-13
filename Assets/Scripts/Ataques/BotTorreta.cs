@@ -7,12 +7,14 @@ public class BotTorreta : MonoBehaviour
     Coroutine disparoCoro, targetCoro;
 
     GameManager Manager => GameManager.gm;
+    AudioSource Source => GetComponent<AudioSource>();
 
     [HideInInspector]
     public Transform target;
 
     public Transform shootPos;
     public GameObject shoot;
+    public Transform area;
 
     [Header("Stats")]
     public int daño;
@@ -32,6 +34,8 @@ public class BotTorreta : MonoBehaviour
         velocidad = torreta.velocidad;
 
         transform.parent = null;
+
+        area.localScale = Vector3.one * radioAtaque * 2;
     }
 
     void Update()
@@ -82,6 +86,7 @@ public class BotTorreta : MonoBehaviour
         {
             GameObject _shoot = Instantiate(shoot, shootPos.position, Quaternion.identity, transform);
             _shoot.name = "Shoot";
+            Source.Play();
         }
 
         disparoCoro = null;

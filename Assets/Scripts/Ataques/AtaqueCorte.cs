@@ -13,6 +13,7 @@ public class AtaqueCorte : MonoBehaviour
 
     [HideInInspector]
     public int nivelActual = 0;
+    int proyectiles = 0;
 
     public Transform target;
     public GameObject prefb;
@@ -71,7 +72,7 @@ public class AtaqueCorte : MonoBehaviour
         Vector3 dir = _target - transform.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
 
-        for (int i = 0; i < nivelActual; i++)
+        for (int i = 0; i < proyectiles; i++)
         {
             GameObject clon = Instantiate(prefb, transform.position, Quaternion.AngleAxis(angle, Vector3.forward), transform);
             clon.name = "Slash";
@@ -108,14 +109,17 @@ public class AtaqueCorte : MonoBehaviour
         if (nivelActual == 1)
         {
             nivel = Nivel.Uno;
+            proyectiles = 1;
         }
         else if (nivelActual == 2)
         {
             nivel = Nivel.Dos;
+            proyectiles = 2;
         }
         else if (nivelActual == 3)
         {
             nivel = Nivel.Tres;
+            proyectiles = 4;
         }
         else if (nivelActual == 4)
         {

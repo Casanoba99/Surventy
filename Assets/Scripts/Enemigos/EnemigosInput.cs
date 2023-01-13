@@ -42,8 +42,8 @@ public class EnemigosInput : MonoBehaviour
                 GetComponent<ShadowCaster2D>().enabled = false;
                 Ps.Play();
                 Destroy(gameObject, 1);
+                Source.Play();
             }
-            Source.Play();
         }
     }
 
@@ -56,6 +56,7 @@ public class EnemigosInput : MonoBehaviour
     IEnumerator RecibirDaño(GameObject obj)
     {
         anims.SetTrigger("Daño");
+        Source.Play();
         PerderVida(obj);
         float vel = velocidad;
         velocidad /= 2;

@@ -6,10 +6,11 @@ using UnityEngine;
 public class Gas : MonoBehaviour
 {
     Coroutine targetCoro;
-    GameManager manager => GameManager.gm;
-    ParticleSystem ps => GetComponent<ParticleSystem>();
-    CircleCollider2D cc => GetComponent<CircleCollider2D>();
-    GameObject luz => transform.GetChild(0).gameObject;
+    GameManager Manager => GameManager.gm;
+    ParticleSystem Ps => GetComponent<ParticleSystem>();
+    CircleCollider2D Cc => GetComponent<CircleCollider2D>();
+    AudioSource Source => GetComponent<AudioSource>();
+    GameObject Luz => transform.GetChild(0).gameObject;
 
     bool explota = false;
     [HideInInspector]
@@ -33,20 +34,20 @@ public class Gas : MonoBehaviour
 
         StartCoroutine(SeleccionarTarget());
 
-        cc.radius *= areaDaño;
-        luz.transform.localScale = Vector3.one * cc.radius * 2;
+        Cc.radius *= areaDaño;
+        Luz.transform.localScale = Vector3.one * Cc.radius * 2;
 
-        ParticleSystem.MainModule main = ps.main;
-        ParticleSystem.ShapeModule shape = ps.shape;
+        ParticleSystem.MainModule main = Ps.main;
+        ParticleSystem.ShapeModule shape = Ps.shape;
         main.duration = aGas.duracion;
-        shape.radius = cc.radius;
+        shape.radius = Cc.radius;
 
         transform.parent = null;
     }
 
     void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, target, velocidad * manager.tiempoDelta);
+        transform.position = Vector3.MoveTowards(transform.position, target, velocidad * Manager.tiempoDelta);
 
         if (transform.position == target && !explota)
         {
@@ -73,12 +74,12 @@ public class Gas : MonoBehaviour
 
     IEnumerator Explosion()
     {
-        luz.SetActive(true);
+        Luz.SetActive(true);
         GetComponent<SpriteRenderer>().enabled = false;
-        ps.Play();
-
-        cc.enabled = true;
-        yield return new WaitForSeconds(ps.main.duration + .25f);
+        Ps.Play();
+        Source.Play();
+        Cc.enabled = true;
+        yield return new WaitForSeconds(Ps.main.duration + .25f);
         Destroy(gameObject);
     }
 }
