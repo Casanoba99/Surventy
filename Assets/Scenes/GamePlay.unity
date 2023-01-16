@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &19656343
 RectTransform:
   m_ObjectHideFlags: 0
@@ -356,15 +356,28 @@ MonoBehaviour:
     prfb: {fileID: 943232816745978289, guid: fef38f502d2dff34fb65f5ee6bdf54ab, type: 3}
   - carta: {fileID: 11400000, guid: a92a10fb570eca2498ea4abf4d6eb52b, type: 2}
     prfb: {fileID: 7488879337915537103, guid: efb8d46751e4c534793e12e8ad9f64d0, type: 3}
-  - carta: {fileID: 11400000, guid: 57248546af964b64fa308fcc7d6ac8ee, type: 2}
-    prfb: {fileID: 2713200852468252064, guid: 74b442322af0a9c4bbd273e4343815f5, type: 3}
   - carta: {fileID: 11400000, guid: f4c24cc48e93b864491d918591a5127f, type: 2}
     prfb: {fileID: 8296716300020108080, guid: d6fc99f4bb30c8a4faa5d84be62c787a, type: 3}
   - carta: {fileID: 11400000, guid: 4b55e748b38e9b240a43795abc71f406, type: 2}
     prfb: {fileID: 6218359092132171602, guid: d0e13fbd23fa08843ab4b007e2a2ead7, type: 3}
+  - carta: {fileID: 11400000, guid: 57248546af964b64fa308fcc7d6ac8ee, type: 2}
+    prfb: {fileID: 2713200852468252064, guid: 74b442322af0a9c4bbd273e4343815f5, type: 3}
+  - carta: {fileID: 11400000, guid: 57248546af964b64fa308fcc7d6ac8ee, type: 2}
+    prfb: {fileID: 2713200852468252064, guid: 74b442322af0a9c4bbd273e4343815f5, type: 3}
+  - carta: {fileID: 11400000, guid: 57248546af964b64fa308fcc7d6ac8ee, type: 2}
+    prfb: {fileID: 2713200852468252064, guid: 74b442322af0a9c4bbd273e4343815f5, type: 3}
+  - carta: {fileID: 11400000, guid: 57248546af964b64fa308fcc7d6ac8ee, type: 2}
+    prfb: {fileID: 2713200852468252064, guid: 74b442322af0a9c4bbd273e4343815f5, type: 3}
+  - carta: {fileID: 11400000, guid: 57248546af964b64fa308fcc7d6ac8ee, type: 2}
+    prfb: {fileID: 2713200852468252064, guid: 74b442322af0a9c4bbd273e4343815f5, type: 3}
   cartas:
   - {fileID: 1093909382}
   - {fileID: 1534305172}
+  tier:
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 0.4198113, g: 0.92852384, b: 1, a: 1}
+  - {r: 0.23137255, g: 1, b: 0.29411766, a: 1}
+  - {r: 1, g: 0.91764706, b: 0.11764706, a: 1}
 --- !u!1 &307288080
 GameObject:
   m_ObjectHideFlags: 0

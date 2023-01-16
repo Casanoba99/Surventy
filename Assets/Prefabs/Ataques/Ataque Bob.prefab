@@ -164,6 +164,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2713200852468252065}
   - component: {fileID: 2713200852468252066}
+  - component: {fileID: 3728207943121614312}
   m_Layer: 8
   m_Name: Ataque Bob
   m_TagString: Untagged
@@ -208,6 +209,19 @@ MonoBehaviour:
   "areaDa\xF1o": 0
   radioAtaque: 0
   velocidadRot: 0
+--- !u!114 &3728207943121614312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2713200852468252064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 298c9c23a7262e54db69becb6ae23158, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nivel: 0
 --- !u!1 &4869199398644178280
 GameObject:
   m_ObjectHideFlags: 0

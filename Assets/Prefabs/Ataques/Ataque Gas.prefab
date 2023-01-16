@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8296716300020108081}
   - component: {fileID: 8296716300020108087}
   - component: {fileID: 8296716300020108086}
+  - component: {fileID: 4637175556155943416}
   m_Layer: 8
   m_Name: Ataque Gas
   m_TagString: Untagged
@@ -144,9 +145,6 @@ MonoBehaviour:
   nivelActual: 0
   duracion: 0
   nivel: 0
-  target:
-  - {fileID: 0}
-  - {fileID: 0}
   prefb: {fileID: 6042234402646500358, guid: 5c5305dcaa3099645885ec7df32c8304, type: 3}
   carta: {fileID: 11400000, guid: f4c24cc48e93b864491d918591a5127f, type: 2}
   "da\xF1o": 0
@@ -154,3 +152,16 @@ MonoBehaviour:
   "areaDa\xF1o": 0
   radioAtaque: 0
   velocidad: 0
+--- !u!114 &4637175556155943416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8296716300020108080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 298c9c23a7262e54db69becb6ae23158, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nivel: 0

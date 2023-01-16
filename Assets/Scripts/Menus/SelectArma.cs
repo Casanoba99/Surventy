@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 
 [Serializable]
 public struct CartaPrfb
@@ -20,6 +22,7 @@ public class SelectArma : MonoBehaviour
 
     public List<CartaPrfb> cartaPrfb;
     public Cartas[] cartas;
+    public Color[] tier;
 
     void Start()
     {
@@ -42,6 +45,7 @@ public class SelectArma : MonoBehaviour
 
             cartas[i].carta = cartaPrfb[nCarta].carta;
             cartas[i].prfb = cartaPrfb[nCarta].prfb;
+            cartas[i].GetComponent<Image>().color = CambiarTier(cartas[i].carta);
 
             cartas[i].AsignarValores();
         }
@@ -63,5 +67,20 @@ public class SelectArma : MonoBehaviour
             cartas[i].prfb = null;
             cartas[i].LimpiarValores();
         }
+    }
+
+    Color CambiarTier(CartasSO arma)
+    {
+        int _tier = 0;
+
+        for (int i = 0; i < Player.childCount; i++)
+        {
+            if (arma.nombre == Player.GetChild(i).name)
+            {
+                _tier = Player.GetChild(i).GetComponent<CheckNivel>().nivel;
+            }
+        }
+
+        return tier[_tier];
     }
 }

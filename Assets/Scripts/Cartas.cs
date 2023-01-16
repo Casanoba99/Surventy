@@ -47,6 +47,7 @@ public class Cartas : MonoBehaviour
         if (instanciar)
         {
             GameObject arma = Instantiate(prfb, player.position, Quaternion.identity, player);
+            arma.GetComponent<CheckNivel>().nivel++;
             arma.name = carta.nombre;
         }
 
@@ -55,8 +56,11 @@ public class Cartas : MonoBehaviour
         manager.EmpezarRonda();
     }
 
+    // Quitar
     void ComprobarObjeto(GameObject obj)
     {
+        obj.GetComponent<CheckNivel>().nivel++;
+
         if (obj.name == "Bob the Bot")
         {
             obj.GetComponent<AtaqueOrbita>().CambiarStats();

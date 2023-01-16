@@ -8,11 +8,20 @@ public class Bob : MonoBehaviour
     public float VelocidadRot => GetComponentInParent<AtaqueOrbita>().velocidadRot;
     public int lado = 1;
 
+    private void Start()
+    {
+        transform.rotation = new Quaternion(0, 0, 0, 0);
+    }
+
     void Update()
     {
         if (Manager.start)
         {
             transform.Rotate(Vector3.forward, -VelocidadRot * Manager.tiempoDelta);
+        }
+        else
+        {
+            transform.rotation = new Quaternion(0, 0, 0, 0);
         }
     }
 

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 943232816745978288}
   - component: {fileID: -8118459040470549377}
   - component: {fileID: 4689788153188251404}
+  - component: {fileID: 6177730237909339229}
   m_Layer: 8
   m_Name: Ataque Escopeta
   m_TagString: Untagged
@@ -141,6 +142,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bbe7e9ad1b53a24fbd7d37e1d883af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nivelActual: 0
+  nivel: 0
   target: {fileID: 0}
   prefab: {fileID: 2131069416913062699, guid: 6a0b1c2b42cebe14480685a1405246e5, type: 3}
   carta: {fileID: 11400000, guid: 312d55737ff30cd469b0a67785b749dc, type: 2}
@@ -150,3 +153,16 @@ MonoBehaviour:
   radioAtaque: 0
   velocidad: 10
   vida: 1
+--- !u!114 &6177730237909339229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943232816745978289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 298c9c23a7262e54db69becb6ae23158, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nivel: 0

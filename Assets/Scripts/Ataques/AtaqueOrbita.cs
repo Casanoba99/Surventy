@@ -31,11 +31,16 @@ public class AtaqueOrbita : MonoBehaviour
         {
             transform.Rotate(Vector3.forward, velocidadRot * Manager.tiempoDelta);
         }
+        else
+        {
+            transform.localRotation = new Quaternion(0, 0, 0, 0);
+        }
     }
 
     public void CambiarStats()
     {
-        nivelActual++;
+        // Aaumentar Nivel
+        nivelActual = GetComponent<CheckNivel>().nivel;
 
         if (nivelActual == 1)
         {
@@ -58,6 +63,7 @@ public class AtaqueOrbita : MonoBehaviour
             transform.GetChild(3).gameObject.SetActive(true);
         }
 
+        // Cambiar los stats
         switch (nivel)
         {
             case Nivel.Uno:
@@ -86,19 +92,23 @@ public class AtaqueOrbita : MonoBehaviour
                 break;
         }
 
+        // Aumentar ladistancia desde el centro
         for (int i = 0; i < nivelActual; i++)
         {
             Transform child = transform.GetChild(i).transform;
+            // Eje X
             if (child.GetSiblingIndex() <= 1)
             {
                 child.GetComponent<Bob>().CambiarRadio(new Vector3(radioAtaque, 0, 0));
             }
+            // Eje Y
             else if (child.GetSiblingIndex() >= 2)
             {
                 child.GetComponent<Bob>().CambiarRadio(new Vector3(0, radioAtaque, 0));
 
             }
 
+            // Aumentra tamaño
             child.localScale = Vector3.one * areaDaño;
         }
     }
