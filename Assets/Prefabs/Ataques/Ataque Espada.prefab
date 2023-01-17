@@ -165,3 +165,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nivel: 0
+  carta: {fileID: 11400000, guid: a92a10fb570eca2498ea4abf4d6eb52b, type: 2}
+  "da\xF1o": 0
+  cooldown: 0
+  "areaDa\xF1o": 0
+  radioAtaque: 0
+  velocidad: 0

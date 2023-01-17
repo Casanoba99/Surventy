@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &19656343
 RectTransform:
   m_ObjectHideFlags: 0
@@ -352,8 +352,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cartaPrfb:
-  - carta: {fileID: 11400000, guid: 312d55737ff30cd469b0a67785b749dc, type: 2}
-    prfb: {fileID: 943232816745978289, guid: fef38f502d2dff34fb65f5ee6bdf54ab, type: 3}
   - carta: {fileID: 11400000, guid: a92a10fb570eca2498ea4abf4d6eb52b, type: 2}
     prfb: {fileID: 7488879337915537103, guid: efb8d46751e4c534793e12e8ad9f64d0, type: 3}
   - carta: {fileID: 11400000, guid: f4c24cc48e93b864491d918591a5127f, type: 2}
@@ -362,14 +360,12 @@ MonoBehaviour:
     prfb: {fileID: 6218359092132171602, guid: d0e13fbd23fa08843ab4b007e2a2ead7, type: 3}
   - carta: {fileID: 11400000, guid: 57248546af964b64fa308fcc7d6ac8ee, type: 2}
     prfb: {fileID: 2713200852468252064, guid: 74b442322af0a9c4bbd273e4343815f5, type: 3}
-  - carta: {fileID: 11400000, guid: 57248546af964b64fa308fcc7d6ac8ee, type: 2}
-    prfb: {fileID: 2713200852468252064, guid: 74b442322af0a9c4bbd273e4343815f5, type: 3}
-  - carta: {fileID: 11400000, guid: 57248546af964b64fa308fcc7d6ac8ee, type: 2}
-    prfb: {fileID: 2713200852468252064, guid: 74b442322af0a9c4bbd273e4343815f5, type: 3}
-  - carta: {fileID: 11400000, guid: 57248546af964b64fa308fcc7d6ac8ee, type: 2}
-    prfb: {fileID: 2713200852468252064, guid: 74b442322af0a9c4bbd273e4343815f5, type: 3}
-  - carta: {fileID: 11400000, guid: 57248546af964b64fa308fcc7d6ac8ee, type: 2}
-    prfb: {fileID: 2713200852468252064, guid: 74b442322af0a9c4bbd273e4343815f5, type: 3}
+  - carta: {fileID: 11400000, guid: 312d55737ff30cd469b0a67785b749dc, type: 2}
+    prfb: {fileID: 943232816745978289, guid: fef38f502d2dff34fb65f5ee6bdf54ab, type: 3}
+  - carta: {fileID: 11400000, guid: 312d55737ff30cd469b0a67785b749dc, type: 2}
+    prfb: {fileID: 943232816745978289, guid: fef38f502d2dff34fb65f5ee6bdf54ab, type: 3}
+  - carta: {fileID: 11400000, guid: 312d55737ff30cd469b0a67785b749dc, type: 2}
+    prfb: {fileID: 943232816745978289, guid: fef38f502d2dff34fb65f5ee6bdf54ab, type: 3}
   cartas:
   - {fileID: 1093909382}
   - {fileID: 1534305172}

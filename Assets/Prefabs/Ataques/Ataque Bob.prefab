@@ -203,6 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae80ad1431596f948b0b56d4157abd9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nivelActual: 0
   nivel: 0
   carta: {fileID: 11400000, guid: 57248546af964b64fa308fcc7d6ac8ee, type: 2}
   "da\xF1o": 0
@@ -222,6 +223,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nivel: 0
+  carta: {fileID: 11400000, guid: 57248546af964b64fa308fcc7d6ac8ee, type: 2}
+  "da\xF1o": 0
+  cooldown: 0
+  "areaDa\xF1o": 0
+  radioAtaque: 0
+  velocidad: 0
 --- !u!1 &4869199398644178280
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class AtaqueBolas : MonoBehaviour
 {
-    public enum Nivel { Uno, Dos, Tres, Cuatro }
+    //public enum Nivel { Uno, Dos, Tres, Cuatro }
 
-    GameManager manager => GameManager.gm;
-    AudioSource source => GetComponent<AudioSource>();
+    GameManager Manager => GameManager.gm;
+    AudioSource Source => GetComponent<AudioSource>();
     Coroutine targetCoro, bolasCoro;
 
-    [HideInInspector]
-    public int nivelActual = 0;
+    //[HideInInspector]
+    //public int nivelActual = 0;
     int bolasDisparadas = 0;
 
-    public Nivel nivel;
+    //public Nivel nivel;
     public Transform target;
     public GameObject prefab;
     public CartasSO carta;
@@ -36,7 +36,7 @@ public class AtaqueBolas : MonoBehaviour
 
     void Update()
     {
-        if (manager.start)
+        if (Manager.start)
         {
             // Seleccionar objetivo
             Start_SelecTarget();
@@ -56,7 +56,7 @@ public class AtaqueBolas : MonoBehaviour
     {
         yield return new WaitForSeconds(cooldown);
 
-        if (target && manager.start)
+        if (target && Manager.start)
         {
             Rotacion();
             GameObject bolas = Instantiate(prefab, transform.position, transform.rotation, transform);
@@ -66,7 +66,7 @@ public class AtaqueBolas : MonoBehaviour
                 bolas.transform.GetChild(i).gameObject.SetActive(true);
             }
 
-            source.Play();
+            Source.Play();
         }
 
         bolasCoro = null;
@@ -104,59 +104,30 @@ public class AtaqueBolas : MonoBehaviour
 
     public void CambiarStats()
     {
-        nivelActual++;
-
-        if (nivelActual == 1)
+        CheckNivel check = GetComponent<CheckNivel>();
+        
+        daño = check.daño;
+        cooldown = check.cooldown;
+        areaDaño = check.areaDaño;
+        radioAtaque = check.radioAtaque;
+        velocidad = check.velocidad;
+        
+        if (check.nivel == 1)
         {
-            nivel = Nivel.Uno;
             bolasDisparadas = 3;
         }
-        else if (nivelActual == 2)
+        else if (check.nivel == 2)
         {
-            nivel = Nivel.Dos;
             bolasDisparadas = 7;
         }
-        else if (nivelActual == 3)
+        else if (check.nivel == 3)
         {
-            nivel = Nivel.Tres;
             bolasDisparadas = 12;
         }
-        else if (nivelActual == 4)
+        else if (check.nivel == 4)
         {
-            nivel = Nivel.Cuatro;
             bolasDisparadas = 17;
         }
 
-        switch (nivel)
-        {
-            case Nivel.Uno:
-                daño = carta.nivel[0].daño;
-                cooldown = carta.nivel[0].cooldown;
-                areaDaño = carta.nivel[0].areaDaño;
-                radioAtaque = carta.nivel[0].radioAtaque;
-                velocidad = carta.nivel[0].velocidad;
-                break;
-            case Nivel.Dos:
-                daño = carta.nivel[1].daño;
-                cooldown = carta.nivel[1].cooldown;
-                areaDaño = carta.nivel[1].areaDaño;
-                radioAtaque = carta.nivel[1].radioAtaque;
-                velocidad = carta.nivel[1].velocidad;
-                break;
-            case Nivel.Tres:
-                daño = carta.nivel[2].daño;
-                cooldown = carta.nivel[2].cooldown;
-                areaDaño = carta.nivel[2].areaDaño;
-                radioAtaque = carta.nivel[2].radioAtaque;
-                velocidad = carta.nivel[2].velocidad;
-                break;
-            case Nivel.Cuatro:
-                daño = carta.nivel[3].daño;
-                cooldown = carta.nivel[3].cooldown;
-                areaDaño = carta.nivel[3].areaDaño;
-                radioAtaque = carta.nivel[3].radioAtaque;
-                velocidad = carta.nivel[3].velocidad;
-                break;
-        }
     }
 }

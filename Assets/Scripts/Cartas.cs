@@ -47,7 +47,7 @@ public class Cartas : MonoBehaviour
         if (instanciar)
         {
             GameObject arma = Instantiate(prfb, player.position, Quaternion.identity, player);
-            arma.GetComponent<CheckNivel>().nivel++;
+            arma.GetComponent<CheckNivel>().SubirNivel();
             arma.name = carta.nombre;
         }
 
@@ -59,38 +59,35 @@ public class Cartas : MonoBehaviour
     // Quitar
     void ComprobarObjeto(GameObject obj)
     {
-        obj.GetComponent<CheckNivel>().nivel++;
+        obj.GetComponent<CheckNivel>().SubirNivel();
+        if (obj.GetComponent<CheckNivel>().nivel == 4) BorrarDeLista(obj);
 
-        if (obj.name == "Bob the Bot")
-        {
-            obj.GetComponent<AtaqueOrbita>().CambiarStats();
-            if (obj.GetComponent<AtaqueOrbita>().nivelActual == 4) BorrarDeLista(obj);
-        }
-        else if (obj.name == "Gas Grenade")
-        {
-            obj.GetComponent<AtaqueGas>().CambiarStats();
-            if (obj.GetComponent<AtaqueGas>().nivelActual == 4) BorrarDeLista(obj);
-        }
-        else if (obj.name == "Laser Sword")
-        {
-            obj.GetComponent<AtaqueCorte>().CambiarStats();
-            if (obj.GetComponent<AtaqueCorte>().nivelActual == 4) BorrarDeLista(obj);
-        }
-        else if (obj.name == "Shotgun")
-        {
-            obj.GetComponent<AtaqueBolas>().CambiarStats();
-            if (obj.GetComponent<AtaqueBolas>().nivelActual == 4) BorrarDeLista(obj);
-        }
-        else if (obj.name == "Bot Turret")
-        {
-            obj.GetComponent<AtaqueTorreta>().CambiarStats();
-            if (obj.GetComponent<AtaqueTorreta>().nivelActual == 4) BorrarDeLista(obj);
-        }
+        //if (obj.name == "Bob the Bot")
+        //{
+        //    obj.GetComponent<AtaqueOrbita>().CambiarStats();
+        //}
+        //else if (obj.name == "Gas Grenade")
+        //{
+        //    obj.GetComponent<AtaqueGas>().CambiarStats();
+        //}
+        //else if (obj.name == "Laser Sword")
+        //{
+        //    obj.GetComponent<AtaqueCorte>().CambiarStats();
+        //}
+        //else if (obj.name == "Shotgun")
+        //{
+        //    obj.GetComponent<AtaqueBolas>().CambiarStats();
+        //}
+        //else if (obj.name == "Bot Turret")
+        //{
+        //    obj.GetComponent<AtaqueTorreta>().CambiarStats();
+        //}
+
     }
 
     void BorrarDeLista(GameObject obj)
     {
-        SelectArma sArma = GameObject.Find("SelectArma").GetComponent<SelectArma>();
+        SelectArma sArma = GetComponentInParent<SelectArma>();
 
         for (int i = 0; i < sArma.cartaPrfb.Count; i++)
         {

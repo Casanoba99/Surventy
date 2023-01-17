@@ -83,7 +83,7 @@ public class AtaqueGas : MonoBehaviour
 
     public void CambiarStats()
     {
-        nivelActual++;
+        nivelActual = GetComponent<CheckNivel>().nivel;
 
         if (nivelActual == 1)
         {

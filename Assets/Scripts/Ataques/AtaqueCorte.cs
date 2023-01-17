@@ -68,10 +68,12 @@ public class AtaqueCorte : MonoBehaviour
 
     void VariacionAtaque()
     {
+        // Rotacion
         Vector3 _target = target.position;
         Vector3 dir = _target - transform.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
 
+        // Instanciacion
         for (int i = 0; i < proyectiles; i++)
         {
             GameObject clon = Instantiate(prefb, transform.position, Quaternion.AngleAxis(angle, Vector3.forward), transform);
@@ -104,7 +106,7 @@ public class AtaqueCorte : MonoBehaviour
 
     public void CambiarStats()
     {
-        nivelActual++;
+        nivelActual = GetComponent<CheckNivel>().nivel;
 
         if (nivelActual == 1)
         {

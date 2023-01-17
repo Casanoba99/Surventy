@@ -33,13 +33,4 @@ public class Slash : MonoBehaviour
         transform.position = transform.position + (Manager.tiempoDelta * velocidad * transform.right);
         Destroy(gameObject, vida);
     }
-
-    void Rotacion()
-    {
-        Vector3 target = GetComponentInParent<AtaqueCorte>().target.position;
-        Vector3 dir = target - transform.position;
-
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-    }
 }
