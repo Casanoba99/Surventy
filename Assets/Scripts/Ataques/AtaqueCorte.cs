@@ -5,14 +5,11 @@ using UnityEngine;
 
 public class AtaqueCorte : MonoBehaviour
 {
-    public enum Nivel { Uno, Dos, Tres, Cuatro }
 
     GameManager manager;
     AudioSource source;
     Coroutine slashCoro, targetCoro;
 
-    [HideInInspector]
-    public int nivelActual = 0;
     int proyectiles = 0;
 
     public Transform target;
@@ -20,7 +17,6 @@ public class AtaqueCorte : MonoBehaviour
     public CartasSO carta;
 
     [Header("Stats")]
-    public Nivel nivel;
     public int daño;
     public float cooldown;
     public float areaDaño;
@@ -106,58 +102,26 @@ public class AtaqueCorte : MonoBehaviour
 
     public void CambiarStats()
     {
-        nivelActual = GetComponent<CheckNivel>().nivel;
+        CheckNivel check = GetComponent<CheckNivel>();
 
-        if (nivelActual == 1)
+        daño = check.daño;
+        cooldown = check.cooldown;
+        areaDaño = check.areaDaño;
+        radioAtaque = check.radioAtaque;
+        velocidad = check.velocidad;
+
+        if (check.nivel == 1)
         {
-            nivel = Nivel.Uno;
             proyectiles = 1;
         }
-        else if (nivelActual == 2)
+        else if (check.nivel == 2)
         {
-            nivel = Nivel.Dos;
             proyectiles = 2;
         }
-        else if (nivelActual == 3)
+        else if (check.nivel == 3)
         {
-            nivel = Nivel.Tres;
             proyectiles = 4;
         }
-        else if (nivelActual == 4)
-        {
-            nivel = Nivel.Cuatro;
-        }
 
-        switch (nivel)
-        {
-            case Nivel.Uno:
-                daño = carta.nivel[0].daño;
-                cooldown = carta.nivel[0].cooldown;
-                areaDaño = carta.nivel[0].areaDaño;
-                radioAtaque = carta.nivel[0].radioAtaque;
-                velocidad = carta.nivel[0].velocidad;
-                break;
-            case Nivel.Dos:
-                daño = carta.nivel[1].daño;
-                cooldown = carta.nivel[1].cooldown;
-                areaDaño = carta.nivel[1].areaDaño;
-                radioAtaque = carta.nivel[1].radioAtaque;
-                velocidad = carta.nivel[1].velocidad;
-                break;
-            case Nivel.Tres:
-                daño = carta.nivel[2].daño;
-                cooldown = carta.nivel[2].cooldown;
-                areaDaño = carta.nivel[2].areaDaño;
-                radioAtaque = carta.nivel[2].radioAtaque;
-                velocidad = carta.nivel[2].velocidad;
-                break;
-            case Nivel.Cuatro:
-                daño = carta.nivel[3].daño;
-                cooldown = carta.nivel[3].cooldown;
-                areaDaño = carta.nivel[3].areaDaño;
-                radioAtaque = carta.nivel[3].radioAtaque;
-                velocidad = carta.nivel[3].velocidad;
-                break;
-        }
     }
 }

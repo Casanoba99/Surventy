@@ -4,17 +4,13 @@ using UnityEngine;
 
 public class AtaqueBolas : MonoBehaviour
 {
-    //public enum Nivel { Uno, Dos, Tres, Cuatro }
 
     GameManager Manager => GameManager.gm;
     AudioSource Source => GetComponent<AudioSource>();
     Coroutine targetCoro, bolasCoro;
 
-    //[HideInInspector]
-    //public int nivelActual = 0;
     int bolasDisparadas = 0;
 
-    //public Nivel nivel;
     public Transform target;
     public GameObject prefab;
     public CartasSO carta;
@@ -28,11 +24,6 @@ public class AtaqueBolas : MonoBehaviour
 
     [Header("Bolas")]
     public int vida;
-
-    void Start()
-    {
-        CambiarStats();
-    }
 
     void Update()
     {

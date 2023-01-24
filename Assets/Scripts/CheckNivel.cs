@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CheckNivel : MonoBehaviour
 {
+    string nombre;
+
     public int nivel = 0;
     public CartasSO carta;
 
@@ -16,6 +18,7 @@ public class CheckNivel : MonoBehaviour
 
     public void SubirNivel()
     {
+        nombre = transform.name;
         nivel++;
 
         switch (nivel)
@@ -47,6 +50,25 @@ public class CheckNivel : MonoBehaviour
                 areaDaño = carta.nivel[3].areaDaño;
                 radioAtaque = carta.nivel[3].radioAtaque;
                 velocidad = carta.nivel[3].velocidad;
+                break;
+        }
+
+        switch (nombre)
+        {
+            case "Bob the Bot":
+                GetComponent<AtaqueOrbita>().CambiarStats();
+                break;
+            case "Gas Grenade":
+                GetComponent<AtaqueGas>().CambiarStats();
+                break;
+            case "Laser Sword":
+                GetComponent<AtaqueCorte>().CambiarStats();
+                break;
+            case "Shotgun":
+                GetComponent<AtaqueBolas>().CambiarStats();
+                break;
+            case "Bot Turret":
+                GetComponent<AtaqueTorreta>().CambiarStats();
                 break;
         }
     }

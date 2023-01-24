@@ -7,7 +7,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: "E0 da\xF1o"
+  m_Name: "E1 da\xF1o"
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -21,7 +21,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: d16d9e1f8b1c3714ca562e86ef241786, type: 2}
+  m_Motion: {fileID: 7400000, guid: 15dc8f996348e6c4c90a5816ca9fcbb3, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -58,7 +58,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Enemigo 0
+  m_Name: Enemigo 1
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: "Da\xF1o"
@@ -109,7 +109,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: E0 move
+  m_Name: E1 move
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -123,7 +123,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: ea93f51baf4dfe9428f5edd7153f97e3, type: 2}
+  m_Motion: {fileID: 7400000, guid: a5b71cbd489fba540ad6616ee4bed651, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2606042027175538377}
   - component: {fileID: 2606042027175538379}
   m_Layer: 0
-  m_Name: SpawnPoint
+  m_Name: Spawn 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 31259eb854cc950488c907a28e32720a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 872d4de13d3f05f4bbc248eaa7adf969, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35488abfbcfedcf47aec818642bc7072, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 0
   padre: {fileID: 0}
-  prefb: {fileID: 7293936431836221421, guid: 37fa439ff9151444789a84583dd11ad8, type: 3}
+  prefb: {fileID: 7671519240678509204, guid: a4e9765808011f24f898de09d02f7abb, type: 3}
   tSpawn: 0.4

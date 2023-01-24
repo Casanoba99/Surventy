@@ -362,10 +362,6 @@ MonoBehaviour:
     prfb: {fileID: 2713200852468252064, guid: 74b442322af0a9c4bbd273e4343815f5, type: 3}
   - carta: {fileID: 11400000, guid: 312d55737ff30cd469b0a67785b749dc, type: 2}
     prfb: {fileID: 943232816745978289, guid: fef38f502d2dff34fb65f5ee6bdf54ab, type: 3}
-  - carta: {fileID: 11400000, guid: 312d55737ff30cd469b0a67785b749dc, type: 2}
-    prfb: {fileID: 943232816745978289, guid: fef38f502d2dff34fb65f5ee6bdf54ab, type: 3}
-  - carta: {fileID: 11400000, guid: 312d55737ff30cd469b0a67785b749dc, type: 2}
-    prfb: {fileID: 943232816745978289, guid: fef38f502d2dff34fb65f5ee6bdf54ab, type: 3}
   cartas:
   - {fileID: 1093909382}
   - {fileID: 1534305172}
@@ -2052,7 +2048,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mVD: {fileID: 505976946}
-  vel: 4
+  vel: 3
   vectMov: {x: 0, y: 0}
   vida: 10
   bVida: {fileID: 2137033551}
@@ -5105,7 +5101,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9e44f860cb1b4fa4590a96050fc21a08, type: 2}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -13472,6 +13468,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemigos:
   - {fileID: 2606042027175538372, guid: ace0e463cd6e1424596647f6b57e898e, type: 3}
+  - {fileID: 2606042027175538372, guid: b24a8b21fc5431f498067dda101ddf76, type: 3}
+  - {fileID: 2606042027175538372, guid: 8af06588da6ffce449d97719f620196e, type: 3}
   target: {fileID: 1002713442}
   cantidad: 10
   min: 5

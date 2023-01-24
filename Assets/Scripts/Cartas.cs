@@ -33,13 +33,15 @@ public class Cartas : MonoBehaviour
         Transform player = GameObject.Find("Player").transform;
         bool instanciar = true;
 
+        // Comprueba todos los hijos del jugador
         for (int i = 0; i < player.childCount; i++)
         {
             GameObject _playerObj = player.GetChild(i).gameObject;
+            // Comprueba sí ya la tiene
             if (carta.nombre == _playerObj.name)
             {
-                ComprobarObjeto(_playerObj);
                 instanciar = false;
+                ComprobarObjeto(_playerObj);
                 break;
             }
         }
@@ -47,8 +49,8 @@ public class Cartas : MonoBehaviour
         if (instanciar)
         {
             GameObject arma = Instantiate(prfb, player.position, Quaternion.identity, player);
-            arma.GetComponent<CheckNivel>().SubirNivel();
             arma.name = carta.nombre;
+            arma.GetComponent<CheckNivel>().SubirNivel();
         }
 
         GameObject.Find("SelectArma").SetActive(false);
@@ -56,33 +58,10 @@ public class Cartas : MonoBehaviour
         manager.EmpezarRonda();
     }
 
-    // Quitar
     void ComprobarObjeto(GameObject obj)
     {
         obj.GetComponent<CheckNivel>().SubirNivel();
         if (obj.GetComponent<CheckNivel>().nivel == 4) BorrarDeLista(obj);
-
-        //if (obj.name == "Bob the Bot")
-        //{
-        //    obj.GetComponent<AtaqueOrbita>().CambiarStats();
-        //}
-        //else if (obj.name == "Gas Grenade")
-        //{
-        //    obj.GetComponent<AtaqueGas>().CambiarStats();
-        //}
-        //else if (obj.name == "Laser Sword")
-        //{
-        //    obj.GetComponent<AtaqueCorte>().CambiarStats();
-        //}
-        //else if (obj.name == "Shotgun")
-        //{
-        //    obj.GetComponent<AtaqueBolas>().CambiarStats();
-        //}
-        //else if (obj.name == "Bot Turret")
-        //{
-        //    obj.GetComponent<AtaqueTorreta>().CambiarStats();
-        //}
-
     }
 
     void BorrarDeLista(GameObject obj)

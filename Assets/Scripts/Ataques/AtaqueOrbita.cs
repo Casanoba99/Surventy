@@ -5,13 +5,9 @@ using UnityEngine;
 
 public class AtaqueOrbita : MonoBehaviour
 {
-    public enum Nivel { Uno, Dos, Tres, Cuatro }
 
     GameManager Manager => GameManager.gm;
-    [HideInInspector]
-    public int nivelActual = 0;
 
-    public Nivel nivel;
     public CartasSO carta;
 
     [Header("Stats")]
@@ -39,61 +35,32 @@ public class AtaqueOrbita : MonoBehaviour
 
     public void CambiarStats()
     {
-        // Aaumentar Nivel
-        nivelActual = GetComponent<CheckNivel>().nivel;
+        CheckNivel check = GetComponent<CheckNivel>();
 
-        if (nivelActual == 1)
+        daño = check.daño;
+        areaDaño = check.areaDaño;
+        radioAtaque = check.radioAtaque;
+        velocidadRot = check.velocidad;
+
+        if (check.nivel == 1)
         {
-            nivel = Nivel.Uno;
             transform.GetChild(0).gameObject.SetActive(true);
         }
-        else if (nivelActual == 2)
+        else if (check.nivel == 2)
         {
-            nivel = Nivel.Dos;
             transform.GetChild(1).gameObject.SetActive(true);
         }
-        else if (nivelActual == 3)
+        else if (check.nivel == 3)
         {
-            nivel = Nivel.Tres;
             transform.GetChild(2).gameObject.SetActive(true);
         }
-        else if (nivelActual == 4)
+        else if (check.nivel == 4)
         {
-            nivel = Nivel.Cuatro;
             transform.GetChild(3).gameObject.SetActive(true);
         }
 
-        // Cambiar los stats
-        switch (nivel)
-        {
-            case Nivel.Uno:
-                daño = carta.nivel[0].daño;
-                areaDaño = carta.nivel[0].areaDaño;
-                radioAtaque = carta.nivel[0].radioAtaque;
-                velocidadRot = carta.nivel[0].velocidad;
-                break;
-            case Nivel.Dos:
-                daño = carta.nivel[1].daño;
-                areaDaño = carta.nivel[1].areaDaño;
-                radioAtaque = carta.nivel[1].radioAtaque;
-                velocidadRot = carta.nivel[1].velocidad;
-                break;
-            case Nivel.Tres:
-                daño = carta.nivel[2].daño;
-                areaDaño = carta.nivel[2].areaDaño;
-                radioAtaque = carta.nivel[2].radioAtaque;
-                velocidadRot = carta.nivel[2].velocidad;
-                break;
-            case Nivel.Cuatro:
-                daño = carta.nivel[3].daño;
-                areaDaño = carta.nivel[3].areaDaño;
-                radioAtaque = carta.nivel[3].radioAtaque;
-                velocidadRot = carta.nivel[3].velocidad;
-                break;
-        }
-
         // Aumentar ladistancia desde el centro
-        for (int i = 0; i < nivelActual; i++)
+        for (int i = 0; i < check.nivel; i++)
         {
             Transform child = transform.GetChild(i).transform;
             // Eje X

@@ -49,7 +49,7 @@ public class SpawnEnemigos : MonoBehaviour
     {
         for (int i = 0; i < cantidad; i++)
         {
-            GameObject clon = Instantiate(enemigos[0], SpawnPos(), Quaternion.identity);
+            GameObject clon = Instantiate(enemigos[EnemyType()], SpawnPos(), Quaternion.identity);
             clon.GetComponent<SpawnPoint>().id = i;
             clon.GetComponent<SpawnPoint>().padre = this;
 
@@ -73,6 +73,15 @@ public class SpawnEnemigos : MonoBehaviour
         while (Vector2.Distance(target.position, pos) < distancia);
 
         return pos;
+    }
+
+    int EnemyType()
+    {
+        int r = UnityEngine.Random.Range(0, 10);
+        if (r > 5 && r < 8) return 1;
+        else if (r > 7 && r < 10) return 2;
+
+        return 0;
     }
     #endregion
 
