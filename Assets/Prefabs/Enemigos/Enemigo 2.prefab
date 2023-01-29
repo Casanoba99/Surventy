@@ -197,7 +197,7 @@ MonoBehaviour:
   - {x: -0.117012516, y: 0.007352017, z: 0}
   m_ShapePathHash: -1013331216
   m_Mesh: {fileID: 0}
-  m_InstanceId: 54212
+  m_InstanceId: 30142
 --- !u!82 &1601151970773031761
 AudioSource:
   m_ObjectHideFlags: 0
@@ -307,8 +307,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  "distDa\xF1o": 0.4
   vida: 2
-  velocidad: 4
+  velocista: 1
+  velocidad: 15
 --- !u!198 &8963882479344520579
 ParticleSystem:
   m_ObjectHideFlags: 0

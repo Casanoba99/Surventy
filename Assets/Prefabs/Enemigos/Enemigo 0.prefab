@@ -309,7 +309,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  "distDa\xF1o": 0.4
   vida: 2
+  velocista: 0
   velocidad: 2
 --- !u!198 &-2656418991266976056
 ParticleSystem:
