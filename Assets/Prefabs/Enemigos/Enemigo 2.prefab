@@ -310,7 +310,7 @@ MonoBehaviour:
   "distDa\xF1o": 0.4
   vida: 2
   velocista: 1
-  velocidad: 15
+  velocidad: 17
 --- !u!198 &8963882479344520579
 ParticleSystem:
   m_ObjectHideFlags: 0

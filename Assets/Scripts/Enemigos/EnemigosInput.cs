@@ -108,35 +108,7 @@ public class EnemigosInput : MonoBehaviour
 
     IEnumerator ArremeterDestino()
     {
-        Vector2 tPos = target.position;
-
-        tPos += new Vector2(Mathf.Sign(tPos.x), Mathf.Sign(tPos.y));
-        Debug.Log(tPos + " + " + new Vector2(Mathf.Sign(tPos.x), Mathf.Sign(tPos.y)));
-
-        //if (tPos == Vector2.positiveInfinity)
-        //{
-        //    tPos += Vector2.one;
-        //    Debug.Log(tPos + " + " + Vector2.one);
-
-        //}
-        //else if (tPos == Vector2.negativeInfinity)
-        //{
-        //    tPos -= Vector2.one;
-        //    Debug.Log(tPos + " - " + Vector2.one);
-        //}
-        //else if (tPos == new Vector2(float.PositiveInfinity, float.NegativeInfinity))
-        //{
-        //    tPos += new Vector2(1, -1);
-        //    Debug.Log(tPos + " + " + new Vector2(1, -1));
-        //}
-        //else if (tPos == new Vector2(float.NegativeInfinity, float.PositiveInfinity))
-        //{
-        //    tPos += new Vector2(-1, 1);
-        //    Debug.Log(tPos + " + " + new Vector2(-1, 1));
-        //}
-
-        Debug.Log("Resultado " + tPos);
-        destino = tPos;
+        destino = target.position;
         yield return new WaitForSeconds(3f);
         atacarCoro = null;
     }
