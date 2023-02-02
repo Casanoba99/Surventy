@@ -5038,7 +5038,7 @@ MonoBehaviour:
   start: 0
   tiempoAtras: 0
   rondasTexto: {fileID: 1829338332}
-  ronda: 0
+  ronda: 8
   maxRondas: 10
   spawn: {fileID: 1715231706}
   incrementoEnemigos: 10
@@ -13466,13 +13466,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22c16ec6d8141a24aab6dcc9adb528cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 1002713442}
   enemigos:
   - {fileID: 2606042027175538372, guid: ace0e463cd6e1424596647f6b57e898e, type: 3}
   - {fileID: 2606042027175538372, guid: b24a8b21fc5431f498067dda101ddf76, type: 3}
   - {fileID: 2606042027175538372, guid: 8af06588da6ffce449d97719f620196e, type: 3}
-  target: {fileID: 1002713442}
   cantidad: 10
   min: 5
+  jefes:
+  - {fileID: 2606042027175538372, guid: 5d37a94f9b47849408d842041c56359a, type: 3}
   map: {fileID: 1461666105}
   distancia: 4
   tiempoSpawn: 0.1

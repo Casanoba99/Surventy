@@ -126,6 +126,7 @@ public class GameManager : MonoBehaviour
 
         ronda++;
         rondasTexto.text = "" + ronda;
+
         start = true;
         tD = true;
     }
@@ -135,6 +136,7 @@ public class GameManager : MonoBehaviour
         start = false;
         tD = false;
 
+        spawn.PararSpawn();
         spawn.cantidad += incrementoEnemigos;
         spawn.min += incrementoEnemigosMin;
         spawn.EliminarEnemigos();

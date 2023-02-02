@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnPoint : MonoBehaviour
+public class SpawnBoss0 : MonoBehaviour
 {
-    public int id;
     public SpawnEnemigos padre;
     public GameObject prefb;
     public float tSpawn = .1f;
@@ -19,8 +18,8 @@ public class SpawnPoint : MonoBehaviour
         yield return new WaitForSeconds(tSpawn);
 
         GameObject clon = Instantiate(prefb, transform.position, Quaternion.identity, padre.transform);
-        clon.name = prefb.name + "_" + id;
-        clon.GetComponent<EnemigosInput>().target = padre.target;
+        clon.name = "Boss";
+        //clon.GetComponent<Boss0Input>().target = padre.target;
         Destroy(gameObject);
     }
 }

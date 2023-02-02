@@ -12,12 +12,17 @@ public class SpawnEnemigos : MonoBehaviour
 
     int hijos;
     bool spawn = false;
+    bool spawnBoss = false;
+
+    public Transform target;
 
     [Header("Enemigos")]
     public GameObject[] enemigos;
-    public Transform target;
     public int cantidad = 10;
     public int min = 5;
+
+    [Header("Jefes")]
+    public GameObject[] jefes;
 
     [Header("Spawn Area")]
     public Tilemap map;
@@ -47,6 +52,13 @@ public class SpawnEnemigos : MonoBehaviour
 
     IEnumerator SpawnPoint()
     {
+        if (Manager.ronda == 10 && !spawnBoss)
+        {
+            int bossN = UnityEngine.Random.Range(0, jefes.Length);
+            GameObject clon = Instantiate(jefes[bossN], SpawnPos(), Quaternion.identity);
+            if (bossN == 0) clon.GetComponent<SpawnBoss0>().padre = this;
+        }
+
         for (int i = 0; i < cantidad; i++)
         {
             GameObject clon = Instantiate(enemigos[EnemyType()], SpawnPos(), Quaternion.identity);
@@ -55,8 +67,18 @@ public class SpawnEnemigos : MonoBehaviour
 
             yield return new WaitForSeconds(tiempoSpawn);
         }
+
         spawn = true;
         spawnCoro = null;
+    }
+
+    public void PararSpawn()
+    {
+        if (spawnCoro != null)
+        {
+            StopCoroutine(spawnCoro);
+            spawnCoro = null;
+        }
     }
 
     Vector2 SpawnPos()
@@ -77,9 +99,10 @@ public class SpawnEnemigos : MonoBehaviour
 
     int EnemyType()
     {
-        int r = UnityEngine.Random.Range(0, 10);
-        if (r > 5 && r < 8) return 1;
-        else if (r > 7 && r < 10) return 2;
+        int max = 11;
+        int r = UnityEngine.Random.Range(0, max);
+        if (r > 7 && r < 10) return 1;
+        else if (r > 9 && r < max) return 2;
 
         return 0;
     }

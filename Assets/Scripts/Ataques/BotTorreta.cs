@@ -34,8 +34,6 @@ public class BotTorreta : MonoBehaviour
         velocidad = torreta.velocidad;
 
         transform.parent = null;
-
-        area.localScale = Vector3.one * radioAtaque * 2;
     }
 
     void Update()
