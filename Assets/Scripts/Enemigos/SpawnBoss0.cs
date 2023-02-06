@@ -19,7 +19,7 @@ public class SpawnBoss0 : MonoBehaviour
 
         GameObject clon = Instantiate(prefb, transform.position, Quaternion.identity, padre.transform);
         clon.name = "Boss";
-        //clon.GetComponent<Boss0Input>().target = padre.target;
+        clon.GetComponent<Boss0Input>().target = padre.target;
         Destroy(gameObject);
     }
 }

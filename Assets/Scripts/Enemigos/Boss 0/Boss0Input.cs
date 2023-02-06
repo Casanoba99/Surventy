@@ -1,42 +1,40 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-public class EnemigosInput : MonoBehaviour
+public class Boss0Input : MonoBehaviour
 {
-    Coroutine dañoCoro, arremeteCoro;
+    Coroutine dañoCoro, ataque1Coro;
     GameManager Manager => GameManager.gm;
     Animator Anims => GetComponent<Animator>();
     AudioSource Source => GetComponent<AudioSource>();
     ParticleSystem Ps => GetComponent<ParticleSystem>();
 
-    bool vivo = true;
-    Vector3 destino;
+    bool vivo = false;
 
     public Transform target;
     [Range(0, 1)]
-    public float distDaño = .4f;
+    public float distDaño = .5f;
 
     [Header("Stats")]
     public int vida;
     public int daño;
-    public bool velocista;
     public float velocidad;
+    [Space(10)]
+    public bool atacar = false;
+    [Header("Ataque 1")]
+    public Transform ataque1;
+    public float velocidadY;
+    public float velocidadX;
 
     void Update()
     {
         if (Manager.start)
         {
-            // Hacer maquina de estados
-            if (!velocista)
-                transform.position = Vector3.MoveTowards(transform.position, target.position, velocidad * Manager.tiempoDelta);
-            else
-            {
-                Start_Arremeter();
-                transform.position = Vector3.MoveTowards(transform.position, destino, velocidad * Manager.tiempoDelta);
-            }
+            transform.position = Vector3.MoveTowards(transform.position, target.position, velocidad * Manager.tiempoDelta);
+
+            if (!atacar) Start_Ataque1();
 
             if (Vector3.Distance(target.position, transform.position) < distDaño && vida > 0)
                 target.GetComponent<PlayerInput>().Start_PierdeVida(daño);
@@ -62,6 +60,7 @@ public class EnemigosInput : MonoBehaviour
         }
     }
 
+    #region Daño
     void Start_RecibirDaño(GameObject obj)
     {
         dañoCoro ??= StartCoroutine(RecibirDaño(obj));
@@ -103,16 +102,24 @@ public class EnemigosInput : MonoBehaviour
             vida -= obj.GetComponent<BotTurretShoot>().daño;
         }
     }
-
-    void Start_Arremeter()
+    #endregion
+    #region Ataque1
+    void Start_Ataque1()
     {
-        arremeteCoro ??= StartCoroutine(ArremeterDestino());
+        ataque1Coro ??= StartCoroutine(Ataque1());
     }
 
-    IEnumerator ArremeterDestino()
+    IEnumerator Ataque1()
     {
-        destino = target.position;
-        yield return new WaitForSeconds(3f);
-        arremeteCoro = null;
+        for (int i = 0; i < ataque1.childCount; i++)
+        {
+            ataque1.GetChild(i).GetComponent<Boss0Ataque1>().enabled = true;
+            yield return new WaitForSeconds(.1f);
+        }
+
+        yield return new WaitForSeconds(3);
+        atacar = false;
+        ataque1Coro = null;
     }
+    #endregion
 }

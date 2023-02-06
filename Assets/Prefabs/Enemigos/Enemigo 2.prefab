@@ -309,6 +309,7 @@ MonoBehaviour:
   target: {fileID: 0}
   "distDa\xF1o": 0.4
   vida: 2
+  "da\xF1o": 1
   velocista: 1
   velocidad: 17
 --- !u!198 &8963882479344520579

@@ -57,8 +57,10 @@ public class SpawnEnemigos : MonoBehaviour
             int bossN = UnityEngine.Random.Range(0, jefes.Length);
             GameObject clon = Instantiate(jefes[bossN], SpawnPos(), Quaternion.identity);
             if (bossN == 0) clon.GetComponent<SpawnBoss0>().padre = this;
-        }
 
+            spawnBoss = true;
+        }
+        
         for (int i = 0; i < cantidad; i++)
         {
             GameObject clon = Instantiate(enemigos[EnemyType()], SpawnPos(), Quaternion.identity);

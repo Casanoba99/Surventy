@@ -2048,7 +2048,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mVD: {fileID: 505976946}
-  vel: 3
+  vel: 3.1
   vectMov: {x: 0, y: 0}
   vida: 10
   bVida: {fileID: 2137033551}
@@ -5038,7 +5038,7 @@ MonoBehaviour:
   start: 0
   tiempoAtras: 0
   rondasTexto: {fileID: 1829338332}
-  ronda: 8
+  ronda: 9
   maxRondas: 10
   spawn: {fileID: 1715231706}
   incrementoEnemigos: 10

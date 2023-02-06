@@ -58,16 +58,16 @@ public class PlayerInput : MonoBehaviour
         }
     }
 
-    public void Start_PierdeVida()
+    public void Start_PierdeVida(int daño)
     {
-        vidaCoro ??= StartCoroutine(PerderVida());
+        vidaCoro ??= StartCoroutine(PerderVida(daño));
     }
 
-    IEnumerator PerderVida()
+    IEnumerator PerderVida(int daño)
     {
         anim.SetTrigger("Daño");
-        vida--;
-        bVida.fillAmount -= .1f;
+        vida -= daño;
+        bVida.fillAmount -= (float)daño / 10;
         source.Play();
 
         if (vida <= 0)
