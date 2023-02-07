@@ -6,6 +6,7 @@ public class Boss0Ataque1 : MonoBehaviour
 {
     public float velocidadY;
     public float velocidadX;
+    public bool disparo = false;
 
     private void Start()
     {
@@ -14,9 +15,13 @@ public class Boss0Ataque1 : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.gm.start)
+        if (GameManager.gm.start && disparo)
         {
-            transform.localPosition += new Vector3(velocidadX, velocidadY, 0) * GameManager.gm.tiempoDelta;
+            transform.parent = null;
+            transform.position += transform.up * velocidadY * GameManager.gm.tiempoDelta;
+            transform.position += transform.right * velocidadX * GameManager.gm.tiempoDelta;
+
+            Destroy(gameObject, 3);
         }
     }
 }

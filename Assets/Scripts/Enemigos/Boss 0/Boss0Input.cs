@@ -23,8 +23,11 @@ public class Boss0Input : MonoBehaviour
     public float velocidad;
     [Space(10)]
     public bool atacar = false;
+    public GameObject ataque1Prfb;
+
     [Header("Ataque 1")]
     public Transform ataque1;
+    public int disparos;
     public float velocidadY;
     public float velocidadX;
 
@@ -111,13 +114,47 @@ public class Boss0Input : MonoBehaviour
 
     IEnumerator Ataque1()
     {
-        for (int i = 0; i < ataque1.childCount; i++)
+        int vecesDispara = disparos;
+
+        for (int i = 0; i < vecesDispara; i++)
         {
-            ataque1.GetChild(i).GetComponent<Boss0Ataque1>().enabled = true;
-            yield return new WaitForSeconds(.1f);
+            GameObject atc = Instantiate(ataque1Prfb, transform.position, Quaternion.identity, transform);
+            ataque1 = transform.GetChild(i);
+
+            for (int j = 0; j < ataque1.childCount; j++)
+            {
+                ataque1.GetChild(j).GetComponent<Boss0Ataque1>().enabled = true;
+                ataque1.GetChild(j).GetComponent<Boss0Ataque1>().velocidadY = velocidadY;
+                ataque1.GetChild(j).GetComponent<Boss0Ataque1>().velocidadX = velocidadX;
+                yield return new WaitForSeconds(.01f);
+            }
         }
 
-        yield return new WaitForSeconds(3);
+        int rot = 0;
+        for (int y = 0; y < vecesDispara; y++)
+        {
+            ataque1 = transform.GetChild(y);
+            ataque1.localRotation = Quaternion.Euler(0, 0, rot);
+
+            for (int x = 0; x < ataque1.childCount; x++)
+            {
+                ataque1.GetChild(x).GetComponent<Boss0Ataque1>().disparo = true;
+            }
+
+            rot += 5;
+            yield return new WaitForSeconds(.25f);
+        }
+
+        yield return new WaitForSeconds(2);
+
+        if (transform.childCount != 0)
+        {
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                Destroy(transform.GetChild(i).gameObject);
+            }
+        }
+
         atacar = false;
         ataque1Coro = null;
     }
