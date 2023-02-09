@@ -114,6 +114,7 @@ public class Boss0Input : MonoBehaviour
 
     IEnumerator Ataque1()
     {
+        atacar = true;
         int vecesDispara = disparos;
 
         for (int i = 0; i < vecesDispara; i++)
