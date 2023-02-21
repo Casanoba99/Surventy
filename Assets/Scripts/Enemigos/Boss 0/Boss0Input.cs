@@ -28,6 +28,7 @@ public class Boss0Input : MonoBehaviour
     [Header("Ataque 1")]
     public Transform ataque1;
     public int disparos;
+    public float cooldown1;
     public float velocidadY;
     public float velocidadX;
 
@@ -125,6 +126,7 @@ public class Boss0Input : MonoBehaviour
             for (int j = 0; j < ataque1.childCount; j++)
             {
                 ataque1.GetChild(j).GetComponent<Boss0Ataque1>().enabled = true;
+                ataque1.GetChild(j).GetComponent<Boss0Ataque1>().daño = daño;
                 ataque1.GetChild(j).GetComponent<Boss0Ataque1>().velocidadY = velocidadY;
                 ataque1.GetChild(j).GetComponent<Boss0Ataque1>().velocidadX = velocidadX;
                 yield return new WaitForSeconds(.01f);
@@ -143,10 +145,10 @@ public class Boss0Input : MonoBehaviour
             }
 
             rot += 5;
-            yield return new WaitForSeconds(.25f);
+            yield return new WaitForSeconds(.5f);
         }
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(cooldown1);
 
         if (transform.childCount != 0)
         {

@@ -5150,11 +5150,12 @@ MonoBehaviour:
   target: {fileID: 0}
   "distDa\xF1o": 0.5
   vida: 20
-  "da\xF1o": 3
+  "da\xF1o": 2
   velocidad: 2.5
   atacar: 0
   ataque1Prfb: {fileID: 4339945180708276917, guid: 63d31c36287438d43be8865c69dfb41b, type: 3}
   ataque1: {fileID: 0}
   disparos: 10
+  cooldown1: 5
   velocidadY: 5
   velocidadX: 7

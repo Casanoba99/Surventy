@@ -2052,6 +2052,7 @@ MonoBehaviour:
   vectMov: {x: 0, y: 0}
   vida: 10
   bVida: {fileID: 2137033551}
+  recuTiempo: 10
 --- !u!95 &1002713446
 Animator:
   serializedVersion: 4
@@ -5038,7 +5039,7 @@ MonoBehaviour:
   start: 0
   tiempoAtras: 0
   rondasTexto: {fileID: 1829338332}
-  ronda: 9
+  ronda: 0
   maxRondas: 10
   spawn: {fileID: 1715231706}
   incrementoEnemigos: 10

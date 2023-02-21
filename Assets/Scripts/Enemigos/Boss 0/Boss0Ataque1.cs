@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Boss0Ataque1 : MonoBehaviour
 {
+    public int daño;
     public float velocidadY;
     public float velocidadX;
     public bool disparo = false;

@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 8470808113470733770}
   - component: {fileID: 4326885203859142588}
   - component: {fileID: 4359224826997762150}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Circle (2)
-  m_TagString: Enemigo
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,6 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dacf6fb34010584698cdb99d57fb28f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  "da\xF1o": 0
   velocidadY: 4
   velocidadX: 2
   disparo: 0
@@ -129,9 +130,9 @@ GameObject:
   - component: {fileID: 4770444587536891433}
   - component: {fileID: 2141175338678702855}
   - component: {fileID: 3513117644538981630}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Circle (4)
-  m_TagString: Enemigo
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -231,6 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dacf6fb34010584698cdb99d57fb28f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  "da\xF1o": 0
   velocidadY: 4
   velocidadX: 2
   disparo: 0
@@ -246,9 +248,9 @@ GameObject:
   - component: {fileID: 8882895130866087441}
   - component: {fileID: 4096280505851503344}
   - component: {fileID: 525139312960575588}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Circle (7)
-  m_TagString: Enemigo
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -348,6 +350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dacf6fb34010584698cdb99d57fb28f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  "da\xF1o": 0
   velocidadY: 4
   velocidadX: 2
   disparo: 0
@@ -363,9 +366,9 @@ GameObject:
   - component: {fileID: 7206784674184830638}
   - component: {fileID: 1970066388282373634}
   - component: {fileID: 8082179351580959602}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Circle (3)
-  m_TagString: Enemigo
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -465,6 +468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dacf6fb34010584698cdb99d57fb28f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  "da\xF1o": 0
   velocidadY: 4
   velocidadX: 2
   disparo: 0
@@ -480,9 +484,9 @@ GameObject:
   - component: {fileID: 5573300438052887625}
   - component: {fileID: 8224870451032117131}
   - component: {fileID: 4418292009412156702}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Circle (6)
-  m_TagString: Enemigo
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -582,6 +586,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dacf6fb34010584698cdb99d57fb28f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  "da\xF1o": 0
   velocidadY: 4
   velocidadX: 2
   disparo: 0
@@ -636,9 +641,9 @@ GameObject:
   - component: {fileID: 4666805396534869230}
   - component: {fileID: 7795557266254503844}
   - component: {fileID: 9009208991198373745}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Circle (8)
-  m_TagString: Enemigo
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -738,6 +743,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dacf6fb34010584698cdb99d57fb28f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  "da\xF1o": 0
   velocidadY: 4
   velocidadX: 2
   disparo: 0
@@ -753,9 +759,9 @@ GameObject:
   - component: {fileID: 5265333621473148476}
   - component: {fileID: 5198768406656948387}
   - component: {fileID: 29426501077900668}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Circle (1)
-  m_TagString: Enemigo
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -855,6 +861,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dacf6fb34010584698cdb99d57fb28f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  "da\xF1o": 0
   velocidadY: 4
   velocidadX: 2
   disparo: 0
@@ -870,9 +877,9 @@ GameObject:
   - component: {fileID: 5698166864434798974}
   - component: {fileID: 2128301965996331187}
   - component: {fileID: 3221922749143969158}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Circle (5)
-  m_TagString: Enemigo
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -972,6 +979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dacf6fb34010584698cdb99d57fb28f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  "da\xF1o": 0
   velocidadY: 4
   velocidadX: 2
   disparo: 0

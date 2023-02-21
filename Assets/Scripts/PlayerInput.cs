@@ -6,13 +6,14 @@ using UnityEngine.UI;
 public class PlayerInput : MonoBehaviour
 {
     GameManager manager;
-    Coroutine vidaCoro;
+    Coroutine dañoCoro, recuperarCoro;
     SpriteRenderer sr;
     AudioSource source;
     Animator anim;
 
     float X;
     float Y;
+    float rTiempo;
 
     public VictoriaDerrota mVD;
 
@@ -23,6 +24,8 @@ public class PlayerInput : MonoBehaviour
     [Header("Vida")]
     public int vida;
     public Image bVida;
+    [Space(5)]
+    public float recuTiempo = 10f;
 
     private void Start()
     {
@@ -35,6 +38,27 @@ public class PlayerInput : MonoBehaviour
     void Update()
     {
         Movimiento();
+
+        if (vida < 10)
+        {
+            if (rTiempo >= recuTiempo)
+            {
+                Start_RecuperarVida();
+            }
+            else
+            {
+                rTiempo += manager.tiempoDelta;
+            }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Boss"))
+        {
+            int daño = collision.GetComponent<Boss0Ataque1>().daño;
+            Start_PierdeVida(daño);
+        }
     }
 
     void Movimiento()
@@ -60,11 +84,15 @@ public class PlayerInput : MonoBehaviour
 
     public void Start_PierdeVida(int daño)
     {
-        vidaCoro ??= StartCoroutine(PerderVida(daño));
+        dañoCoro ??= StartCoroutine(PerderVida(daño));
     }
 
     IEnumerator PerderVida(int daño)
     {
+        rTiempo = 0;
+        StopCoroutine(RecuperarVida());
+        recuperarCoro = null;
+
         anim.SetTrigger("Daño");
         vida -= daño;
         bVida.fillAmount -= (float)daño / 10;
@@ -78,6 +106,24 @@ public class PlayerInput : MonoBehaviour
         }
 
         yield return new WaitForSeconds(1f);
-        vidaCoro = null;
+        dañoCoro = null;
+    }
+
+    void Start_RecuperarVida()
+    {
+        recuperarCoro ??= StartCoroutine(RecuperarVida());
+    }
+
+    IEnumerator RecuperarVida()
+    {
+        while (vida < 10)
+        {
+            vida++;
+            bVida.fillAmount += (float)1 / 10;
+            yield return new WaitForSeconds(1f);
+        }
+
+        rTiempo = 0;
+        recuperarCoro = null;
     }
 }
